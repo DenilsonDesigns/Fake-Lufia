@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://uc3nv0fy533k"]
+
+[ext_resource type="Texture2D" uid="uid://bk1lr56xpk62u" path="res://assets/selan.png" id="1_yjta1"]
+
+[node name="Selan" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_yjta1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
