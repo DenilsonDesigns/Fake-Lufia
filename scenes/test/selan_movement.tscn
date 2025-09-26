@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc5qljucaexw7"]
+
+[ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="1_hfeqn"]
+
+[node name="SelanMovement" type="Node2D"]
+
+[node name="Selan" parent="." instance=ExtResource("1_hfeqn")]
+speed = 100.0
