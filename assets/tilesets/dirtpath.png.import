@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3iwssw3jb4jk"
-path="res://.godot/imported/dirtpath_tileset.png-6daeebd0e37027539f2aa5f0d2d4efa1.ctex"
+path="res://.godot/imported/dirtpath.png-977b181f328b78aae47bf7b50d92dceb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/dirtpath_tileset.png"
-dest_files=["res://.godot/imported/dirtpath_tileset.png-6daeebd0e37027539f2aa5f0d2d4efa1.ctex"]
+source_file="res://assets/tilesets/dirtpath.png"
+dest_files=["res://.godot/imported/dirtpath.png-977b181f328b78aae47bf7b50d92dceb.ctex"]
 
 [params]
 

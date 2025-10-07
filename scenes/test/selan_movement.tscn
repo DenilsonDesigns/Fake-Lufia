@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://cc5qljucaexw7"]
 
-[ext_resource type="TileSet" uid="uid://b56ioxhxtu7wv" path="res://tile_sets/grass_tileset.tres" id="1_035vh"]
+[ext_resource type="TileSet" uid="uid://b56ioxhxtu7wv" path="res://tile_sets/grass.tres" id="1_035vh"]
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="1_hfeqn"]
-[ext_resource type="TileSet" uid="uid://ds82o3ocqij05" path="res://tile_sets/dirtpath_tileset.tres" id="2_lkiq2"]
+[ext_resource type="TileSet" uid="uid://ds82o3ocqij05" path="res://tile_sets/dirtpath.tres" id="2_lkiq2"]
 
 [node name="SelanMovement" type="Node2D"]
 

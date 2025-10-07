@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihceb43n26o2"
-path="res://.godot/imported/stonemarquee_tileset.png-dac977194adaf2f79f952a5e81556e98.ctex"
+uid="uid://id3adujopjwd"
+path="res://.godot/imported/mage_shop_exterior.png-75f608a4cc4db969f25d84fcdb885b61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/stonemarquee_tileset.png"
-dest_files=["res://.godot/imported/stonemarquee_tileset.png-dac977194adaf2f79f952a5e81556e98.ctex"]
+source_file="res://assets/environment/mage_shop_exterior.png"
+dest_files=["res://.godot/imported/mage_shop_exterior.png-75f608a4cc4db969f25d84fcdb885b61.ctex"]
 
 [params]
 

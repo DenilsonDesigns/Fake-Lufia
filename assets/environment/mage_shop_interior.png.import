@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhwfusfyts4fk"
-path="res://.godot/imported/grass_tileset.png-28e8bb9584500f2edb151326ff51d74d.ctex"
+uid="uid://g8umxf7chmea"
+path="res://.godot/imported/mage_shop_interior.png-b5ee0e977c84fa76dd41534023753f6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/grass_tileset.png"
-dest_files=["res://.godot/imported/grass_tileset.png-28e8bb9584500f2edb151326ff51d74d.ctex"]
+source_file="res://assets/environment/mage_shop_interior.png"
+dest_files=["res://.godot/imported/mage_shop_interior.png-b5ee0e977c84fa76dd41534023753f6c.ctex"]
 
 [params]
 

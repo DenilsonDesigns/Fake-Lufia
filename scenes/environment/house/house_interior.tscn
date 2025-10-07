@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn8dh1xsbvt5l"]
+
+[ext_resource type="Texture2D" uid="uid://g8umxf7chmea" path="res://assets/environment/mage_shop_interior.png" id="1_nnw52"]
+[ext_resource type="Script" uid="uid://con1n8e4q6sa4" path="res://scenes/environment/transition_door/transition_door.gd" id="2_h5yn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5yn1"]
+size = Vector2(119, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35phw"]
+size = Vector2(17, 20)
+
+[node name="HouseInterior" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nnw52")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(67, 4)
+polygon = PackedVector2Array(-57, 40, -57, 62, -51, 62, -8, 46, -2, 30, -9, 13, -10, 24, -25, 24, -26, 40)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-40, 36, -8, 47, -8, 25, -39, 24, -40, 9, -56, 8, -56, -4, -62, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 3)
+shape = SubResource("RectangleShape2D_h5yn1")
+
+[node name="TransitionDoor" type="Area2D" parent="." groups=["TransitionDoors"]]
+script = ExtResource("2_h5yn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDoor"]
+position = Vector2(1, 67)
+shape = SubResource("RectangleShape2D_35phw")
+
+[node name="DropPoint" type="Marker2D" parent="TransitionDoor"]
