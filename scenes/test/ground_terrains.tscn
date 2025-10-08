@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://ddg3ex7hnuygm"]
+[gd_scene load_steps=6 format=4 uid="uid://ddg3ex7hnuygm"]
 
 [ext_resource type="TileSet" uid="uid://b56ioxhxtu7wv" path="res://tile_sets/grass.tres" id="1_p2cfl"]
 [ext_resource type="TileSet" uid="uid://ds82o3ocqij05" path="res://tile_sets/dirtpath.tres" id="2_8mw3b"]
 [ext_resource type="TileSet" uid="uid://djcrsl7p05wdt" path="res://tile_sets/stonepath.tres" id="3_8mw3b"]
 [ext_resource type="TileSet" uid="uid://sk1bwvbxp4ac" path="res://tile_sets/stonemarquee.tres" id="4_qp4d4"]
+[ext_resource type="PackedScene" uid="uid://dj0ska0pnwf8y" path="res://scenes/environment/transition_door/transition_door.tscn" id="5_awd5g"]
 
 [node name="GroundTerrains" type="Node2D"]
 
@@ -22,3 +23,7 @@ tile_set = ExtResource("3_8mw3b")
 [node name="StoneMarquee" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAWABAAAAACAAIAAAAWAA8AAAACAAAAAAAVABAAAAABAAIAAAAVAA8AAAABAAAAAAAUABAAAAABAAIAAAAUAA8AAAABAAAAAAATABAAAAABAAIAAAATAA8AAAABAAAAAAASABAAAAAAAAIAAAASAA8AAAAAAAAAAAA=")
 tile_set = ExtResource("4_qp4d4")
+
+[node name="TransitionDoor" parent="." instance=ExtResource("5_awd5g")]
+
+[editable path="TransitionDoor"]

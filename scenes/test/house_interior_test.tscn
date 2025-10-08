@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clomj2jjmmnuo"]
+
+[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/environment/house/house_interior.tscn" id="1_d0uli"]
+[ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="2_snis2"]
+
+[node name="HouseInteriorTest" type="Node2D"]
+
+[node name="HouseInterior" parent="." instance=ExtResource("1_d0uli")]
+
+[node name="TransitionDoor" parent="HouseInterior" index="4"]
+new_area = "uid://ddg3ex7hnuygm"
+
+[node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
+position = Vector2(0, 49)
+
+[node name="Selan" parent="." instance=ExtResource("2_snis2")]
+position = Vector2(0, 47)
+
+[editable path="HouseInterior"]

@@ -5,6 +5,8 @@ class_name Selan extends CharacterBody2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var last_direction := Vector2.DOWN
+var last_door_connection := -1
+var door_cooldown: bool = false
 
 func _physics_process(_delta: float) -> void:
 	var direction := _get_direction_from_input()
@@ -43,3 +45,22 @@ func _get_direction_from_input() -> Vector2:
 		out_direction = Vector2.UP
 
 	return out_direction
+
+func reset_door_cooldown() -> void:
+	await get_tree().create_timer(0.5).timeout
+	door_cooldown = false
+
+func go_to_new_area(new_area_path: String) -> void:
+	# @NOTE: would add transitions/music here
+	LevelSwapper.level_swap(self, new_area_path)
+
+func _on_transition_door_detector_area_entered(transition_door: TransitionDoor) -> void:
+	if door_cooldown: return
+
+	if not transition_door is TransitionDoor: return
+	if transition_door.new_area.is_empty(): return
+
+	last_door_connection = transition_door.connection
+	door_cooldown = true
+
+	call_deferred("go_to_new_area", transition_door.new_area)
