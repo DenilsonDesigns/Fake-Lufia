@@ -8,7 +8,7 @@
 [node name="HouseInterior" parent="." instance=ExtResource("1_d0uli")]
 
 [node name="TransitionDoor" parent="HouseInterior" index="4"]
-new_area = "uid://ddg3ex7hnuygm"
+new_area = "uid://dy7h4exkvnrmj"
 
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
 position = Vector2(0, 49)
