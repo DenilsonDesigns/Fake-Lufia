@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://ds82o3ocqij05" path="res://tile_sets/dirtpath.tres" id="2_8mw3b"]
 [ext_resource type="TileSet" uid="uid://djcrsl7p05wdt" path="res://tile_sets/stonepath.tres" id="3_8mw3b"]
 [ext_resource type="TileSet" uid="uid://sk1bwvbxp4ac" path="res://tile_sets/stonemarquee.tres" id="4_qp4d4"]
-[ext_resource type="PackedScene" uid="uid://dj0ska0pnwf8y" path="res://scenes/environment/transition_door/transition_door.tscn" id="5_awd5g"]
+[ext_resource type="PackedScene" uid="uid://dj0ska0pnwf8y" path="res://scenes/structures/transition_door/transition_door.tscn" id="5_awd5g"]
 
 [node name="GroundTerrains" type="Node2D"]
 

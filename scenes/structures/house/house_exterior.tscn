@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3e7lcpvveulh"]
 
-[ext_resource type="Texture2D" uid="uid://id3adujopjwd" path="res://assets/environment/mage_shop_exterior.png" id="1_jp5jg"]
-[ext_resource type="Script" uid="uid://con1n8e4q6sa4" path="res://scenes/environment/transition_door/transition_door.gd" id="2_jp5jg"]
+[ext_resource type="Texture2D" uid="uid://id3adujopjwd" path="res://assets/structures/mage_shop_exterior.png" id="1_jp5jg"]
+[ext_resource type="Script" uid="uid://con1n8e4q6sa4" path="res://scenes/structures/transition_door/transition_door.gd" id="2_jp5jg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp5jg"]
 size = Vector2(16.5, 21)

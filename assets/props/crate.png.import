@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://id3adujopjwd"
-path="res://.godot/imported/mage_shop_exterior.png-75f608a4cc4db969f25d84fcdb885b61.ctex"
+uid="uid://dla0t2f8ep1ro"
+path="res://.godot/imported/crate.png-64e12e936c8237c7a47839a15aef7577.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/mage_shop_exterior.png"
-dest_files=["res://.godot/imported/mage_shop_exterior.png-75f608a4cc4db969f25d84fcdb885b61.ctex"]
+source_file="res://assets/props/crate.png"
+dest_files=["res://.godot/imported/crate.png-64e12e936c8237c7a47839a15aef7577.ctex"]
 
 [params]
 
