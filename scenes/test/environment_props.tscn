@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cjld45lrpumho"]
+[gd_scene load_steps=9 format=4 uid="uid://cjld45lrpumho"]
 
 [ext_resource type="TileSet" uid="uid://b56ioxhxtu7wv" path="res://tile_sets/grass.tres" id="1_h4e8e"]
 [ext_resource type="TileSet" uid="uid://djcrsl7p05wdt" path="res://tile_sets/stonepath.tres" id="2_ygbd5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="5_0qv5d"]
 [ext_resource type="PackedScene" uid="uid://bplxs7u41pjbm" path="res://scenes/props/bench.tscn" id="6_0qv5d"]
 [ext_resource type="PackedScene" uid="uid://bgyrhlbvoawyb" path="res://scenes/props/crate.tscn" id="7_3ajj3"]
+[ext_resource type="PackedScene" uid="uid://c3vpjpt4n4btx" path="res://scenes/environment/pine_tree.tscn" id="7_jxwfh"]
 
 [node name="EnvironmentProps" type="Node2D"]
 y_sort_enabled = true
@@ -29,20 +30,19 @@ tile_set = ExtResource("3_qrlpc")
 y_sort_enabled = true
 
 [node name="Barrel" parent="Props" instance=ExtResource("4_qrlpc")]
-y_sort_enabled = true
 position = Vector2(382, 341)
 
 [node name="Barrel2" parent="Props" instance=ExtResource("4_qrlpc")]
-y_sort_enabled = true
 position = Vector2(403, 341)
 
 [node name="Bench" parent="Props" instance=ExtResource("6_0qv5d")]
-y_sort_enabled = true
 position = Vector2(344, 340)
 
 [node name="Crate" parent="Props" instance=ExtResource("7_3ajj3")]
-y_sort_enabled = true
 position = Vector2(305, 342)
+
+[node name="PineTree" parent="Props" instance=ExtResource("7_jxwfh")]
+position = Vector2(307, 287)
 
 [node name="Selan" parent="." instance=ExtResource("5_0qv5d")]
 y_sort_enabled = true
