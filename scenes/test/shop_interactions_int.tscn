@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwdhbt33w7hqm"]
+[gd_scene load_steps=4 format=3 uid="uid://bwdhbt33w7hqm"]
 
 [ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/house_interior.tscn" id="1_vtle4"]
 [ext_resource type="PackedScene" uid="uid://k1snwu2eys26" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="2_5ek1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtle4"]
+size = Vector2(37, 9)
 
 [node name="ShopInteractionsInt" type="Node2D"]
 
@@ -16,4 +19,12 @@ position = Vector2(1, 47)
 [node name="Shopkeeper" parent="." instance=ExtResource("2_5ek1m")]
 position = Vector2(32, -6)
 
+[node name="CollisionShape2D" parent="Shopkeeper/InteractionArea" index="0"]
+position = Vector2(-29.5, 27.5)
+shape = SubResource("RectangleShape2D_vtle4")
+
+[node name="TendTarget" parent="Shopkeeper" index="4"]
+position = Vector2(-31, -4)
+
 [editable path="HouseInterior"]
+[editable path="Shopkeeper"]
