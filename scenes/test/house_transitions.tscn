@@ -34,7 +34,6 @@ new_area = "uid://clomj2jjmmnuo"
 position = Vector2(0, 14)
 
 [node name="Selan" parent="." instance=ExtResource("5_uobrt")]
-y_sort_enabled = true
 position = Vector2(217, 339)
 
 [editable path="HouseExterior"]

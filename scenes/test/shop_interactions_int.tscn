@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwdhbt33w7hqm"]
+
+[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/house_interior.tscn" id="1_vtle4"]
+[ext_resource type="PackedScene" uid="uid://k1snwu2eys26" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="2_5ek1m"]
+
+[node name="ShopInteractionsInt" type="Node2D"]
+
+[node name="HouseInterior" parent="." instance=ExtResource("1_vtle4")]
+
+[node name="TransitionDoor" parent="HouseInterior" index="6"]
+new_area = "uid://dcipt3o8d04y4"
+
+[node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
+position = Vector2(1, 47)
+
+[node name="Shopkeeper" parent="." instance=ExtResource("2_5ek1m")]
+position = Vector2(32, -6)
+
+[editable path="HouseInterior"]

@@ -174,6 +174,7 @@ radius = 5.0
 size = Vector2(9, 12)
 
 [node name="Selan" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_fa2jv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

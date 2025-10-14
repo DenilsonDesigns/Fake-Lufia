@@ -45,5 +45,4 @@ position = Vector2(305, 342)
 position = Vector2(307, 287)
 
 [node name="Selan" parent="." instance=ExtResource("5_0qv5d")]
-y_sort_enabled = true
 position = Vector2(208, 338)

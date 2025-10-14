@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn8dh1xsbvt5l"]
+[gd_scene load_steps=6 format=3 uid="uid://dn8dh1xsbvt5l"]
 
 [ext_resource type="Texture2D" uid="uid://g8umxf7chmea" path="res://assets/structures/mage_shop_interior.png" id="1_nnw52"]
 [ext_resource type="Script" uid="uid://con1n8e4q6sa4" path="res://scenes/structures/transition_door/transition_door.gd" id="2_h5yn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5yn1"]
-size = Vector2(119, 26)
+size = Vector2(119, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5b5a"]
+size = Vector2(31, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35phw"]
 size = Vector2(17, 20)
@@ -22,9 +25,17 @@ polygon = PackedVector2Array(-57, 40, -57, 62, -51, 62, -8, 46, -2, 30, -9, 13, 
 position = Vector2(0, 20)
 polygon = PackedVector2Array(-40, 36, -8, 47, -8, 25, -39, 24, -40, 9, -56, 8, -56, -4, -62, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 3)
+[node name="CollisionShapeBench" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 6.5)
 shape = SubResource("RectangleShape2D_h5yn1")
+
+[node name="CollisionShapeShelves" type="CollisionShape2D" parent="."]
+position = Vector2(-23.5, -26)
+shape = SubResource("RectangleShape2D_f5b5a")
+
+[node name="CollisionShapeShelves2" type="CollisionShape2D" parent="."]
+position = Vector2(26, -26)
+shape = SubResource("RectangleShape2D_f5b5a")
 
 [node name="TransitionDoor" type="Area2D" parent="." groups=["TransitionDoors"]]
 script = ExtResource("2_h5yn1")
