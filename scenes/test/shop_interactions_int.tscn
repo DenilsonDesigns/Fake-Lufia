@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwdhbt33w7hqm"]
+[gd_scene load_steps=5 format=3 uid="uid://bwdhbt33w7hqm"]
 
 [ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/house_interior.tscn" id="1_vtle4"]
 [ext_resource type="PackedScene" uid="uid://k1snwu2eys26" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="2_5ek1m"]
+[ext_resource type="PackedScene" uid="uid://410ptqh3vl4a" path="res://scenes/utils/interaction_area.tscn" id="3_5ek1m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtle4"]
-size = Vector2(37, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptmt"]
+size = Vector2(51, 20)
 
 [node name="ShopInteractionsInt" type="Node2D"]
 
@@ -16,15 +17,19 @@ new_area = "uid://dcipt3o8d04y4"
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
 position = Vector2(1, 47)
 
-[node name="Shopkeeper" parent="." instance=ExtResource("2_5ek1m")]
+[node name="Shopkeeper" parent="." node_paths=PackedStringArray("interaction_area") instance=ExtResource("2_5ek1m")]
 position = Vector2(32, -6)
+interaction_area = NodePath("../InteractionArea")
 
-[node name="CollisionShape2D" parent="Shopkeeper/InteractionArea" index="0"]
-position = Vector2(-29.5, 27.5)
-shape = SubResource("RectangleShape2D_vtle4")
-
-[node name="TendTarget" parent="Shopkeeper" index="4"]
+[node name="TendTarget" parent="Shopkeeper" index="3"]
 position = Vector2(-31, -4)
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_5ek1m")]
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0.5, 15)
+shape = SubResource("RectangleShape2D_2ptmt")
 
 [editable path="HouseInterior"]
 [editable path="Shopkeeper"]
+[editable path="InteractionArea"]

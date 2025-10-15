@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://k1snwu2eys26"]
+[gd_scene load_steps=14 format=3 uid="uid://k1snwu2eys26"]
 
 [ext_resource type="Texture2D" uid="uid://b3nfthtn6c7j7" path="res://assets/characters/shopkeeper.png" id="1_dt1ut"]
 [ext_resource type="Script" uid="uid://dbeh03ffg3t4a" path="res://scenes/characters/shopkeeper/shopkeeper.gd" id="1_inoif"]
@@ -171,8 +171,6 @@ _data = {
 radius = 3.99884
 height = 13.9977
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt1ut"]
-
 [node name="Shopkeeper" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_inoif")
@@ -193,15 +191,5 @@ position = Vector2(0, -3)
 rotation = 1.57195
 shape = SubResource("CapsuleShape2D_dt1ut")
 
-[node name="InteractionArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 15)
-shape = SubResource("RectangleShape2D_dt1ut")
-debug_color = Color(0.667068, 0.493563, 0.370834, 0.42)
-
 [node name="TendTarget" type="Marker2D" parent="."]
 position = Vector2(0, 35)
-
-[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
-[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
