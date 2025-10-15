@@ -22,7 +22,7 @@ position = Vector2(32, -6)
 interaction_area = NodePath("../InteractionArea")
 
 [node name="TendTarget" parent="Shopkeeper" index="3"]
-position = Vector2(-31, -4)
+position = Vector2(-32, -2)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_5ek1m")]
 

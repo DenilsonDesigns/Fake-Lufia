@@ -9,6 +9,8 @@ var moving := false
 var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO
 
+var target_is_tend := false
+
 func _ready():
 	if interaction_area == null:
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
@@ -29,20 +31,26 @@ func _physics_process(_delta):
 		move_and_slide()
 
 		if global_position.distance_to(target_position) < 2.0:
+			global_position = target_position
 			moving = false
 			velocity = Vector2.ZERO
-			_play_idle_animation(direction)
+
+			if target_is_tend:
+				animation_player.play("idle_down")
+			else:
+				_play_idle_animation(direction)
+
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Selan":
-		print("entered")
 		target_position = tend_target.global_position
+		target_is_tend = true
 		moving = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Selan":
-		print("exited")
 		target_position = start_position
+		target_is_tend = false
 		moving = true
 
 func _play_walk_animation(direction: Vector2):
@@ -59,4 +67,5 @@ func _play_idle_animation(direction: Vector2):
 
 func interact():
 	target_position = tend_target.global_position
+	target_is_tend = true
 	moving = true
