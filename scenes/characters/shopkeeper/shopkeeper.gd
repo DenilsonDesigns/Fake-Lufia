@@ -24,6 +24,16 @@ func _ready():
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
 		return
 	
+	if tend_target == null:
+		push_error("Shopkeeper missing tend_target! Please assign it in the Inspector.")
+
+	if shop_milling.size() == 1:
+		push_warning("Shopkeeper shop_milling array is empty. She won't wander.")
+	else:
+		for i in range(shop_milling.size()):
+			if shop_milling[i] == null:
+				push_warning("Shopkeeper shop_milling contains a null entry at index %d." % i)
+	
 	start_position = global_position
 	target_position = global_position
 
