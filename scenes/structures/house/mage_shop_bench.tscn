@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dptconl5qt1dk"]
+
+[ext_resource type="Texture2D" uid="uid://dnc05tmv2pmvn" path="res://assets/structures/mage_shop_front_bench.png" id="1_bqrxt"]
+
+[node name="MageShopBench" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bqrxt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-53, -18, -54, 17, 56, 18, 56, -17, 42, -17, 42, -1, -40, -1, -40, -18)

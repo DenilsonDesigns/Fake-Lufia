@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clomj2jjmmnuo"]
 
-[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/house_interior.tscn" id="1_d0uli"]
+[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/mage_shop_interior_base.tscn" id="1_d0uli"]
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="2_snis2"]
 
 [node name="HouseInteriorTest" type="Node2D"]

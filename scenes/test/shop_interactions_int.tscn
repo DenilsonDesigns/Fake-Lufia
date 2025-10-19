@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwdhbt33w7hqm"]
+[gd_scene load_steps=6 format=3 uid="uid://bwdhbt33w7hqm"]
 
-[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/house_interior.tscn" id="1_vtle4"]
+[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/mage_shop_interior_base.tscn" id="1_vtle4"]
 [ext_resource type="PackedScene" uid="uid://k1snwu2eys26" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="2_5ek1m"]
+[ext_resource type="PackedScene" uid="uid://dptconl5qt1dk" path="res://scenes/structures/house/mage_shop_bench.tscn" id="3_2ptmt"]
 [ext_resource type="PackedScene" uid="uid://410ptqh3vl4a" path="res://scenes/utils/interaction_area.tscn" id="3_5ek1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptmt"]
@@ -11,7 +12,7 @@ size = Vector2(51, 20)
 
 [node name="HouseInterior" parent="." instance=ExtResource("1_vtle4")]
 
-[node name="TransitionDoor" parent="HouseInterior" index="6"]
+[node name="TransitionDoor" parent="HouseInterior" index="10"]
 new_area = "uid://dcipt3o8d04y4"
 
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
@@ -23,6 +24,8 @@ interaction_area = NodePath("../InteractionArea")
 
 [node name="TendTarget" parent="Shopkeeper" index="3"]
 position = Vector2(-32, -2)
+
+[node name="MageShopBench" parent="." instance=ExtResource("3_2ptmt")]
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_5ek1m")]
 

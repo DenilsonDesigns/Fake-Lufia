@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b56ioxhxtu7wv" path="res://tile_sets/grass.tres" id="1_oppcp"]
 [ext_resource type="TileSet" uid="uid://djcrsl7p05wdt" path="res://tile_sets/stonepath.tres" id="2_23upj"]
 [ext_resource type="TileSet" uid="uid://ds82o3ocqij05" path="res://tile_sets/dirtpath.tres" id="3_uobrt"]
-[ext_resource type="PackedScene" uid="uid://b3e7lcpvveulh" path="res://scenes/structures/house/house_exterior.tscn" id="4_23upj"]
+[ext_resource type="PackedScene" uid="uid://b3e7lcpvveulh" path="res://scenes/structures/house/mage_shop_exterior.tscn" id="4_23upj"]
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="5_uobrt"]
 
 [node name="HouseTransitions" type="Node2D"]

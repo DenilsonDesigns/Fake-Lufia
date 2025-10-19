@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8dh1xsbvt5l"]
+[gd_scene load_steps=7 format=3 uid="uid://dn8dh1xsbvt5l"]
 
-[ext_resource type="Texture2D" uid="uid://g8umxf7chmea" path="res://assets/structures/mage_shop_interior.png" id="1_nnw52"]
+[ext_resource type="Texture2D" uid="uid://05ei3r8wv38e" path="res://assets/structures/mage_shop_minimal.png" id="1_f5b5a"]
 [ext_resource type="Script" uid="uid://con1n8e4q6sa4" path="res://scenes/structures/transition_door/transition_door.gd" id="2_h5yn1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5yn1"]
-size = Vector2(119, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5b5a"]
 size = Vector2(31, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrov4"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4w6d"]
+size = Vector2(8, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35phw"]
 size = Vector2(17, 20)
@@ -15,7 +18,7 @@ size = Vector2(17, 20)
 [node name="HouseInterior" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_nnw52")
+texture = ExtResource("1_f5b5a")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(67, 4)
@@ -25,10 +28,6 @@ polygon = PackedVector2Array(-57, 40, -57, 62, -51, 62, -8, 46, -2, 30, -9, 13, 
 position = Vector2(0, 20)
 polygon = PackedVector2Array(-40, 36, -8, 47, -8, 25, -39, 24, -40, 9, -56, 8, -56, -4, -62, 16)
 
-[node name="CollisionShapeBench" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 6.5)
-shape = SubResource("RectangleShape2D_h5yn1")
-
 [node name="CollisionShapeShelves" type="CollisionShape2D" parent="."]
 position = Vector2(-23.5, -26)
 shape = SubResource("RectangleShape2D_f5b5a")
@@ -36,6 +35,26 @@ shape = SubResource("RectangleShape2D_f5b5a")
 [node name="CollisionShapeShelves2" type="CollisionShape2D" parent="."]
 position = Vector2(26, -26)
 shape = SubResource("RectangleShape2D_f5b5a")
+
+[node name="CollisionShapeBackWall" type="CollisionShape2D" parent="."]
+position = Vector2(-47, -29)
+shape = SubResource("RectangleShape2D_lrov4")
+
+[node name="CollisionShapeBackWall2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -36)
+shape = SubResource("RectangleShape2D_lrov4")
+
+[node name="CollisionShapeBackWall3" type="CollisionShape2D" parent="."]
+position = Vector2(50, -29)
+shape = SubResource("RectangleShape2D_lrov4")
+
+[node name="CollisionShapeSideWall" type="CollisionShape2D" parent="."]
+position = Vector2(-59, -8)
+shape = SubResource("RectangleShape2D_f4w6d")
+
+[node name="CollisionShapeSideWall2" type="CollisionShape2D" parent="."]
+position = Vector2(61, -8)
+shape = SubResource("RectangleShape2D_f4w6d")
 
 [node name="TransitionDoor" type="Area2D" parent="." groups=["TransitionDoors"]]
 script = ExtResource("2_h5yn1")

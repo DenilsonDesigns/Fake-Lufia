@@ -193,7 +193,7 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_fa2jv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.135, 2.135)
+zoom = Vector2(2.51, 2.51)
 
 [node name="TransitionDoorDetector" type="Area2D" parent="."]
 
