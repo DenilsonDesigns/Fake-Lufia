@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var tend_target: Marker2D
 @export var shop_milling: Array[Marker2D] = []
 @export var interaction_area: Area2D
+@export var conversation_label: Label # assign in inspector
 
 var move_speed := 40.0
 var moving := false
@@ -12,10 +13,19 @@ var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO
 var target_is_tend := false
 
+# Milling / wandering
 var wander_timer := 0.0
 var wander_delay := 3.0
 var current_spot: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
+
+# Conversation
+var shop_lines := [
+	"How can I help you?",
+	"Welcome to the shop!",
+	"Looking for something special?",
+	"Take your time browsing."
+]
 
 func _ready():
 	randomize()
@@ -23,17 +33,17 @@ func _ready():
 	if interaction_area == null:
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
 		return
-	
+
 	if tend_target == null:
 		push_error("Shopkeeper missing tend_target! Please assign it in the Inspector.")
 
-	if shop_milling.size() == 1:
+	if shop_milling.size() == 0:
 		push_warning("Shopkeeper shop_milling array is empty. She won't wander.")
 	else:
 		for i in range(shop_milling.size()):
 			if shop_milling[i] == null:
 				push_warning("Shopkeeper shop_milling contains a null entry at index %d." % i)
-	
+
 	start_position = global_position
 	target_position = global_position
 
@@ -57,7 +67,6 @@ func _physics_process(delta):
 			if target_is_tend:
 				animation_player.play("idle_down")
 			elif shop_milling.size() > 0 and target_position in _shop_milling_positions():
-				# Always idle_up at milling spots
 				animation_player.play("idle_up")
 			else:
 				_play_idle_animation(last_direction)
@@ -114,3 +123,17 @@ func _shop_milling_positions() -> Array:
 	for m in shop_milling:
 		positions.append(m.global_position)
 	return positions
+
+# -------------------------------
+# Conversation system
+# -------------------------------
+func _process(_delta):
+	if Input.is_action_just_pressed("interact") and target_is_tend and not moving:
+		for body in interaction_area.get_overlapping_bodies():
+			if body.is_in_group("player"):
+				_start_conversation()
+				break
+
+func _start_conversation():
+	if conversation_label:
+		conversation_label.text = shop_lines[randi() % shop_lines.size()]

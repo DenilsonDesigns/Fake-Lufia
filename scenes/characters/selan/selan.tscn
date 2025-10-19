@@ -173,7 +173,7 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa2jv"]
 size = Vector2(9, 12)
 
-[node name="Selan" type="CharacterBody2D"]
+[node name="Selan" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 script = ExtResource("1_fa2jv")
 

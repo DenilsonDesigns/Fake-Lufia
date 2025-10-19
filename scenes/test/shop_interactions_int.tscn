@@ -18,11 +18,12 @@ new_area = "uid://dcipt3o8d04y4"
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
 position = Vector2(1, 47)
 
-[node name="Shopkeeper" parent="." node_paths=PackedStringArray("tend_target", "shop_milling", "interaction_area") instance=ExtResource("2_5ek1m")]
+[node name="Shopkeeper" parent="." node_paths=PackedStringArray("tend_target", "shop_milling", "interaction_area", "conversation_label") instance=ExtResource("2_5ek1m")]
 position = Vector2(32, -6)
 tend_target = NodePath("../TendTarget")
 shop_milling = [NodePath("../MillPoint1"), NodePath("../MillPoint2")]
 interaction_area = NodePath("../InteractionArea")
+conversation_label = NodePath("../ConvoLabel")
 
 [node name="MageShopBench" parent="." instance=ExtResource("3_2ptmt")]
 
@@ -40,6 +41,12 @@ position = Vector2(-31, -8)
 
 [node name="MillPoint2" type="Marker2D" parent="."]
 position = Vector2(17, -8)
+
+[node name="ConvoLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 38.0
+offset_right = 64.0
+offset_bottom = 61.0
 
 [editable path="HouseInterior"]
 [editable path="Shopkeeper"]
