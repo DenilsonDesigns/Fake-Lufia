@@ -1,17 +1,25 @@
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var tend_target: Marker2D = $TendTarget
+
+@export var tend_target: Marker2D
+@export var shop_milling: Array[Marker2D] = []
 @export var interaction_area: Area2D
 
-var move_speed := 60.0
+var move_speed := 40.0
 var moving := false
 var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO
-
 var target_is_tend := false
 
+var wander_timer := 0.0
+var wander_delay := 3.0
+var current_spot: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.DOWN
+
 func _ready():
+	randomize()
+
 	if interaction_area == null:
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
 		return
@@ -22,10 +30,11 @@ func _ready():
 	interaction_area.body_entered.connect(_on_interaction_area_body_entered)
 	interaction_area.body_exited.connect(_on_interaction_area_body_exited)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if moving:
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * move_speed
+		last_direction = direction
 
 		_play_walk_animation(direction)
 		move_and_slide()
@@ -37,15 +46,34 @@ func _physics_process(_delta):
 
 			if target_is_tend:
 				animation_player.play("idle_down")
+			elif shop_milling.size() > 0 and target_position in _shop_milling_positions():
+				# Always idle_up at milling spots
+				animation_player.play("idle_up")
 			else:
-				_play_idle_animation(direction)
+				_play_idle_animation(last_direction)
+	else:
+		# Only mill when not tending
+		if not target_is_tend and shop_milling.size() > 0:
+			wander_timer += delta
+			if wander_timer >= wander_delay:
+				_pick_new_milling_target()
+				wander_timer = 0.0
 
+func _pick_new_milling_target():
+	if shop_milling.size() == 0:
+		return
+	var idx = randi() % shop_milling.size()
+	current_spot = shop_milling[idx].global_position
+	target_position = current_spot
+	moving = true
+	wander_delay = randf_range(2.0, 5.0)
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Selan":
-		target_position = tend_target.global_position
-		target_is_tend = true
-		moving = true
+		if tend_target:
+			target_position = tend_target.global_position
+			target_is_tend = true
+			moving = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Selan":
@@ -66,6 +94,13 @@ func _play_idle_animation(direction: Vector2):
 		animation_player.play("idle_down" if direction.y > 0 else "idle_up")
 
 func interact():
-	target_position = tend_target.global_position
-	target_is_tend = true
-	moving = true
+	if tend_target:
+		target_position = tend_target.global_position
+		target_is_tend = true
+		moving = true
+
+func _shop_milling_positions() -> Array:
+	var positions := []
+	for m in shop_milling:
+		positions.append(m.global_position)
+	return positions

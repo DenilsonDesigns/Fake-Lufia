@@ -190,6 +190,3 @@ libraries = {
 position = Vector2(0, -3)
 rotation = 1.57195
 shape = SubResource("CapsuleShape2D_dt1ut")
-
-[node name="TendTarget" type="Marker2D" parent="."]
-position = Vector2(0, 35)
