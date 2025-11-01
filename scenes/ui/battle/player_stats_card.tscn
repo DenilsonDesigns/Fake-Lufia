@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmenq5g0eb15c"]
+
+[ext_resource type="Texture2D" uid="uid://db81b4tqpapfu" path="res://assets/ui/battle_char_overlay_base.png" id="1_s8xm1"]
+[ext_resource type="Texture2D" uid="uid://cdjfud23jo0yh" path="res://assets/ui/hp_bar_label.png" id="2_mil01"]
+[ext_resource type="PackedScene" uid="uid://myl0naxevyw1" path="res://scenes/ui/battle/bar_backing.tscn" id="3_3fd3c"]
+[ext_resource type="Texture2D" uid="uid://0u3nkyjsks38" path="res://assets/ui/mp_bar_label.png" id="3_padf2"]
+[ext_resource type="PackedScene" uid="uid://c5ivlpgs6x6vy" path="res://scenes/ui/battle/bar_fill.tscn" id="4_l4n0e"]
+
+[node name="PlayerStatsCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CardBacking" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_s8xm1")
+
+[node name="HPBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HpLabel" type="TextureRect" parent="HPBar"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 32.0
+texture = ExtResource("2_mil01")
+
+[node name="BarBacking" parent="HPBar" instance=ExtResource("3_3fd3c")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 25.0
+offset_right = 48.0
+offset_bottom = 30.0
+
+[node name="BarFill" parent="HPBar" instance=ExtResource("4_l4n0e")]
+position = Vector2(34, 27.5)
+ratio = 0.4
+
+[node name="MPBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MpLabel" type="TextureRect" parent="MPBar"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 33.0
+offset_right = 20.0
+offset_bottom = 41.0
+texture = ExtResource("3_padf2")
+
+[node name="BarBacking" parent="MPBar" instance=ExtResource("3_3fd3c")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 34.0
+offset_right = 48.0
+offset_bottom = 39.0
+
+[node name="BarFill" parent="MPBar" instance=ExtResource("4_l4n0e")]
+position = Vector2(34, 36.5)
+bar_type = "MP"
+ratio = 0.76

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ivlpgs6x6vy"]
+
+[ext_resource type="Script" uid="uid://pyypjo1tpb0c" path="res://scenes/ui/battle/bar_fill.gd" id="1_c1dth"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_plrde"]
+
+[node name="BarFill" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_plrde")
+script = ExtResource("1_c1dth")
