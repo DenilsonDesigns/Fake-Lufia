@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0b0706jtd4n5"
-path="res://.godot/imported/mp_bar_fill.png-c6b87d6b398fa2c8704c60adfd39ce90.ctex"
+uid="uid://db81b4tqpapfu"
+path="res://.godot/imported/battle_char_overlay_base.png-18d74cdbfcd9f41d6838f6cb044aa01d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/mp_bar_fill.png"
-dest_files=["res://.godot/imported/mp_bar_fill.png-c6b87d6b398fa2c8704c60adfd39ce90.ctex"]
+source_file="res://assets/battle/battle_char_overlay_base.png"
+dest_files=["res://.godot/imported/battle_char_overlay_base.png-18d74cdbfcd9f41d6838f6cb044aa01d.ctex"]
 
 [params]
 

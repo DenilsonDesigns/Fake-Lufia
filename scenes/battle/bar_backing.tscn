@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://myl0naxevyw1"]
 
-[ext_resource type="Texture2D" uid="uid://c8xgr1yt02os2" path="res://assets/ui/backing_bar.png" id="1_fddpm"]
+[ext_resource type="Texture2D" uid="uid://c8xgr1yt02os2" path="res://assets/battle/backing_bar.png" id="1_fddpm"]
 
 [node name="BarBacking" type="TextureRect"]
 offset_right = 27.0

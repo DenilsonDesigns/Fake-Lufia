@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdjfud23jo0yh"
-path="res://.godot/imported/hp_bar_label.png-e6e67a5112dfcfbdeeb6d6fced4fb938.ctex"
+uid="uid://dlfesg7a4q1fj"
+path="res://.godot/imported/enemy_snail.png-a0587e5f736337c00fd14406b117e409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/hp_bar_label.png"
-dest_files=["res://.godot/imported/hp_bar_label.png-e6e67a5112dfcfbdeeb6d6fced4fb938.ctex"]
+source_file="res://assets/battle/enemies/enemy_snail.png"
+dest_files=["res://.godot/imported/enemy_snail.png-a0587e5f736337c00fd14406b117e409.ctex"]
 
 [params]
 

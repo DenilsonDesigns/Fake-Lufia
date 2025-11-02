@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmenq5g0eb15c"]
 
-[ext_resource type="Texture2D" uid="uid://db81b4tqpapfu" path="res://assets/ui/battle_char_overlay_base.png" id="1_s8xm1"]
-[ext_resource type="Texture2D" uid="uid://cdjfud23jo0yh" path="res://assets/ui/hp_bar_label.png" id="2_mil01"]
-[ext_resource type="PackedScene" uid="uid://myl0naxevyw1" path="res://scenes/ui/battle/bar_backing.tscn" id="3_3fd3c"]
-[ext_resource type="Texture2D" uid="uid://0u3nkyjsks38" path="res://assets/ui/mp_bar_label.png" id="3_padf2"]
-[ext_resource type="PackedScene" uid="uid://c5ivlpgs6x6vy" path="res://scenes/ui/battle/bar_fill.tscn" id="4_l4n0e"]
+[ext_resource type="Texture2D" uid="uid://db81b4tqpapfu" path="res://assets/battle/battle_char_overlay_base.png" id="1_s8xm1"]
+[ext_resource type="Texture2D" uid="uid://cdjfud23jo0yh" path="res://assets/battle/hp_bar_label.png" id="2_mil01"]
+[ext_resource type="PackedScene" uid="uid://myl0naxevyw1" path="res://scenes/battle/bar_backing.tscn" id="3_3fd3c"]
+[ext_resource type="Texture2D" uid="uid://0u3nkyjsks38" path="res://assets/battle/mp_bar_label.png" id="3_padf2"]
+[ext_resource type="PackedScene" uid="uid://c5ivlpgs6x6vy" path="res://scenes/battle/bar_fill.tscn" id="4_l4n0e"]
 
 [node name="PlayerStatsCard" type="Control"]
 layout_mode = 3

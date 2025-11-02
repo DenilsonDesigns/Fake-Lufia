@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2k8pvu7j5v05"
-path="res://.godot/imported/hp_bar_fill.png-540aeeb8f0c7016b20cf02aacc63ffa2.ctex"
+uid="uid://bv6n05xjyjk0b"
+path="res://.godot/imported/enemy_zombie.png-41d5e8835212023bbcb225abfd46a9a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/hp_bar_fill.png"
-dest_files=["res://.godot/imported/hp_bar_fill.png-540aeeb8f0c7016b20cf02aacc63ffa2.ctex"]
+source_file="res://assets/battle/enemies/enemy_zombie.png"
+dest_files=["res://.godot/imported/enemy_zombie.png-41d5e8835212023bbcb225abfd46a9a5.ctex"]
 
 [params]
 

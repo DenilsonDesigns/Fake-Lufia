@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8xgr1yt02os2"
-path="res://.godot/imported/backing_bar.png-bd5bf60b46729810adc5908313c2e10f.ctex"
+uid="uid://0u3nkyjsks38"
+path="res://.godot/imported/mp_bar_label.png-5b6ffe9d88d8c9e951ed26acabfbf41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/backing_bar.png"
-dest_files=["res://.godot/imported/backing_bar.png-bd5bf60b46729810adc5908313c2e10f.ctex"]
+source_file="res://assets/battle/mp_bar_label.png"
+dest_files=["res://.godot/imported/mp_bar_label.png-5b6ffe9d88d8c9e951ed26acabfbf41f.ctex"]
 
 [params]
 
