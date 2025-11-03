@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gxglj3iv8cue" path="res://scenes/battle/battle_background.tscn" id="1_r1lyb"]
 [ext_resource type="Texture2D" uid="uid://tg4f0clpmmi3" path="res://assets/battle/field_battle.png" id="2_diwvd"]
-[ext_resource type="PackedScene" uid="uid://bmenq5g0eb15c" path="res://scenes/battle/player_stats_card.tscn" id="3_diwvd"]
+[ext_resource type="PackedScene" uid="uid://bmenq5g0eb15c" path="res://scenes/battle/ui/player_stats_card.tscn" id="3_diwvd"]
 [ext_resource type="PackedScene" uid="uid://dp3gn481fmeq0" path="res://scenes/characters/selan/selan_battle.tscn" id="4_m5ei4"]
 [ext_resource type="PackedScene" uid="uid://cybfkdt78mmqe" path="res://scenes/battle/enemies/snail_enemy.tscn" id="5_e4va7"]
 [ext_resource type="PackedScene" uid="uid://br4pyq21pcb5t" path="res://scenes/battle/enemies/zombie_enemy.tscn" id="6_vk8er"]

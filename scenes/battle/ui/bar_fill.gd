@@ -12,9 +12,9 @@ extends AnimatedSprite2D
 
 func _ready():
 	if hp_texture == null:
-		hp_texture = load("res://assets/ui/hp_bar_fill.png")
+		hp_texture = load("res://assets/battle/hp_bar_fill.png")
 	if mp_texture == null:
-		mp_texture = load("res://assets/ui/mp_bar_fill.png")
+		mp_texture = load("res://assets/battle/mp_bar_fill.png")
 
 	_load_frames()
 	_update_frame()
@@ -27,7 +27,10 @@ func _load_frames():
 
 	var sf := SpriteFrames.new()
 	var anim_name := "default"
-	sf.add_animation(anim_name)
+
+	if not sf.has_animation(anim_name):
+		sf.add_animation(anim_name)
+	
 	sf.set_animation_speed(anim_name, 0)
 	sf.set_animation_loop(anim_name, false)
 

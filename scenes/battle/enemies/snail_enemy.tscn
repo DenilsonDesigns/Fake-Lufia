@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dlfesg7a4q1fj" path="res://assets/battle/enemies/enemy_snail.png" id="1_nj7cj"]
 
-[sub_resource type="Animation" id="Animation_nj7cj"]
-resource_name = "idle"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_7smo8"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +17,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7smo8"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_nj7cj"]
+resource_name = "idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
