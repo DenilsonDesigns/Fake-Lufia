@@ -1,0 +1,162 @@
+[gd_scene load_steps=18 format=3 uid="uid://45tnrjh6bjdd"]
+
+[ext_resource type="Texture2D" uid="uid://cnfaf312duthn" path="res://assets/battle/battle_selection_card.png" id="1_aq12c"]
+[ext_resource type="Texture2D" uid="uid://btn4djc15tk8d" path="res://assets/battle/battle_selection_character_name.png" id="2_gr4cn"]
+[ext_resource type="Texture2D" uid="uid://brwuu4oocpwih" path="res://assets/battle/selan_battle_icon.png" id="2_n5jyg"]
+[ext_resource type="Texture2D" uid="uid://bs7mdbe8am7uj" path="res://assets/battle/battle_selection_level_tag.png" id="3_v1ork"]
+[ext_resource type="Texture2D" uid="uid://hsjwe50blfck" path="res://assets/battle/battle_selection_attack_icon.png" id="4_g4p62"]
+[ext_resource type="Texture2D" uid="uid://17fkqv5som0r" path="res://assets/battle/battle_selection_defend_icon.png" id="5_nun3u"]
+[ext_resource type="Texture2D" uid="uid://cvmg8hh5cv6o4" path="res://assets/battle/battle_selection_item_icon.png" id="6_j8ghx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5jyg"]
+texture = ExtResource("1_aq12c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nun3u"]
+atlas = ExtResource("4_g4p62")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ghx"]
+atlas = ExtResource("4_g4p62")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvfpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nun3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ghx")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvfpo"]
+atlas = ExtResource("5_nun3u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gimcf"]
+atlas = ExtResource("5_nun3u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ylm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvfpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gimcf")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ylm4"]
+atlas = ExtResource("6_j8ghx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng0d5"]
+atlas = ExtResource("6_j8ghx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lr32l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ylm4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng0d5")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="ActionSelectionCard" type="Panel"]
+offset_right = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n5jyg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+size_flags_horizontal = 3
+
+[node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterName" type="TextureRect" parent="HBoxContainer/LeftColumn"]
+layout_mode = 2
+texture = ExtResource("2_gr4cn")
+stretch_mode = 2
+
+[node name="LevelContainer" type="HBoxContainer" parent="HBoxContainer/LeftColumn"]
+layout_mode = 2
+
+[node name="LevelTag" type="TextureRect" parent="HBoxContainer/LeftColumn/LevelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_v1ork")
+stretch_mode = 2
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/LeftColumn/LevelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "30"
+
+[node name="SelectionIconsContainer" type="HBoxContainer" parent="HBoxContainer/LeftColumn"]
+layout_mode = 2
+
+[node name="AttackIconContainer" type="Control" parent="HBoxContainer/LeftColumn/SelectionIconsContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="AttackIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/AttackIconContainer"]
+sprite_frames = SubResource("SpriteFrames_vvfpo")
+offset = Vector2(8, 8)
+
+[node name="DefendIconContainer" type="Control" parent="HBoxContainer/LeftColumn/SelectionIconsContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="DefendIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/DefendIconContainer"]
+sprite_frames = SubResource("SpriteFrames_4ylm4")
+offset = Vector2(8, 8)
+
+[node name="ItemIconContainer" type="Control" parent="HBoxContainer/LeftColumn/SelectionIconsContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="ItemIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/ItemIconContainer"]
+sprite_frames = SubResource("SpriteFrames_lr32l")
+offset = Vector2(8, 8)
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CharacterIcon" type="TextureRect" parent="HBoxContainer/Control"]
+layout_mode = 2
+offset_right = 29.0
+offset_bottom = 44.0
+size_flags_horizontal = 0
+texture = ExtResource("2_n5jyg")
+stretch_mode = 5
