@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://45tnrjh6bjdd"]
+[gd_scene load_steps=20 format=3 uid="uid://45tnrjh6bjdd"]
 
 [ext_resource type="Texture2D" uid="uid://cnfaf312duthn" path="res://assets/battle/battle_selection_card.png" id="1_aq12c"]
 [ext_resource type="Texture2D" uid="uid://btn4djc15tk8d" path="res://assets/battle/battle_selection_character_name.png" id="2_gr4cn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://jdw6l1s6t2ak" path="res://scenes/battle/ui/action_selection_card.gd" id="2_vvfpo"]
 [ext_resource type="Texture2D" uid="uid://bs7mdbe8am7uj" path="res://assets/battle/battle_selection_level_tag.png" id="3_v1ork"]
 [ext_resource type="Texture2D" uid="uid://hsjwe50blfck" path="res://assets/battle/battle_selection_attack_icon.png" id="4_g4p62"]
+[ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="5_gimcf"]
 [ext_resource type="Texture2D" uid="uid://17fkqv5som0r" path="res://assets/battle/battle_selection_defend_icon.png" id="5_nun3u"]
 [ext_resource type="Texture2D" uid="uid://cvmg8hh5cv6o4" path="res://assets/battle/battle_selection_item_icon.png" id="6_j8ghx"]
 
@@ -130,8 +131,10 @@ texture = ExtResource("3_v1ork")
 stretch_mode = 2
 
 [node name="LevelLabel" type="Label" parent="HBoxContainer/LeftColumn/LevelContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 7
+theme_override_fonts/font = ExtResource("5_gimcf")
+theme_override_font_sizes/font_size = 8
 text = "30"
 
 [node name="SelectionIconsContainer" type="HBoxContainer" parent="HBoxContainer/LeftColumn"]
@@ -160,7 +163,6 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="ItemIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/ItemIconContainer"]
-unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_lr32l")
 offset = Vector2(8, 8)
 
