@@ -9,7 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://cvmg8hh5cv6o4" path="res://assets/battle/battle_selection_item_icon.png" id="6_j8ghx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5jyg"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
 texture = ExtResource("1_aq12c")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nun3u"]
 atlas = ExtResource("4_g4p62")
@@ -92,17 +101,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ActionSelectionCard" type="Panel"]
-offset_right = 40.0
+[node name="ActionSelectionCard" type="PanelContainer"]
+offset_right = 60.0
+offset_bottom = 44.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_n5jyg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-size_flags_horizontal = 3
+layout_mode = 2
 
 [node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 
 [node name="CharacterName" type="TextureRect" parent="HBoxContainer/LeftColumn"]
 layout_mode = 2
@@ -150,13 +159,12 @@ layout_mode = 2
 sprite_frames = SubResource("SpriteFrames_lr32l")
 offset = Vector2(8, 8)
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Control" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="CharacterIcon" type="TextureRect" parent="HBoxContainer/Control"]
 layout_mode = 2
-offset_right = 29.0
-offset_bottom = 44.0
 size_flags_horizontal = 0
 texture = ExtResource("2_n5jyg")
 stretch_mode = 5
