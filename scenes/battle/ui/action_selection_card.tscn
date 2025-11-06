@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://45tnrjh6bjdd"]
+[gd_scene load_steps=19 format=3 uid="uid://45tnrjh6bjdd"]
 
 [ext_resource type="Texture2D" uid="uid://cnfaf312duthn" path="res://assets/battle/battle_selection_card.png" id="1_aq12c"]
 [ext_resource type="Texture2D" uid="uid://btn4djc15tk8d" path="res://assets/battle/battle_selection_character_name.png" id="2_gr4cn"]
 [ext_resource type="Texture2D" uid="uid://brwuu4oocpwih" path="res://assets/battle/selan_battle_icon.png" id="2_n5jyg"]
+[ext_resource type="Script" uid="uid://jdw6l1s6t2ak" path="res://scenes/battle/ui/action_selection_card.gd" id="2_vvfpo"]
 [ext_resource type="Texture2D" uid="uid://bs7mdbe8am7uj" path="res://assets/battle/battle_selection_level_tag.png" id="3_v1ork"]
 [ext_resource type="Texture2D" uid="uid://hsjwe50blfck" path="res://assets/battle/battle_selection_attack_icon.png" id="4_g4p62"]
 [ext_resource type="Texture2D" uid="uid://17fkqv5som0r" path="res://assets/battle/battle_selection_defend_icon.png" id="5_nun3u"]
@@ -105,6 +106,7 @@ animations = [{
 offset_right = 60.0
 offset_bottom = 44.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_n5jyg")
+script = ExtResource("2_vvfpo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -140,6 +142,7 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="AttackIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/AttackIconContainer"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_vvfpo")
 offset = Vector2(8, 8)
 
@@ -148,6 +151,7 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="DefendIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/DefendIconContainer"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_4ylm4")
 offset = Vector2(8, 8)
 
@@ -156,6 +160,7 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="ItemIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/ItemIconContainer"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_lr32l")
 offset = Vector2(8, 8)
 
@@ -168,3 +173,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_n5jyg")
 stretch_mode = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.515, 3.515)
