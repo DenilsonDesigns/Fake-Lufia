@@ -163,6 +163,7 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="ItemIcon" type="AnimatedSprite2D" parent="HBoxContainer/LeftColumn/SelectionIconsContainer/ItemIconContainer"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_lr32l")
 offset = Vector2(8, 8)
 
