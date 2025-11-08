@@ -1,6 +1,7 @@
 extends Node
 
 var selan: Selan
+var stashed_scene_path: String
 
 func level_swap(selan_to_stash: Selan, new_level_string: String) -> void:
 	stash_selan(selan_to_stash)
@@ -30,3 +31,12 @@ func remove_existing_selan(parent: Node) -> void:
 	var existing_selan := parent.get_node_or_null("Selan")
 	if existing_selan:
 		parent.remove_child(existing_selan)
+
+
+func level_swap_to_battle(current_scene_path: String, battle_scene_path: String) -> void:
+	stashed_scene_path = current_scene_path
+	get_tree().change_scene_to_file(battle_scene_path)
+
+func return_from_battle() -> void:
+	if stashed_scene_path != "":
+		get_tree().change_scene_to_file(stashed_scene_path)

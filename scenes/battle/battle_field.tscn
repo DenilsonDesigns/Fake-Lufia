@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd2yrigaqttn5"]
+
+[ext_resource type="PackedScene" uid="uid://gxglj3iv8cue" path="res://scenes/battle/battle_background.tscn" id="1_0f5w6"]
+[ext_resource type="Texture2D" uid="uid://tg4f0clpmmi3" path="res://assets/battle/field_battle.png" id="2_h6aes"]
+[ext_resource type="PackedScene" uid="uid://bmenq5g0eb15c" path="res://scenes/battle/ui/player_stats_card.tscn" id="3_ao5qy"]
+[ext_resource type="PackedScene" uid="uid://dp3gn481fmeq0" path="res://scenes/characters/selan/selan_battle.tscn" id="4_d28uh"]
+[ext_resource type="PackedScene" uid="uid://cybfkdt78mmqe" path="res://scenes/battle/enemies/snail_enemy.tscn" id="5_nuktu"]
+[ext_resource type="PackedScene" uid="uid://br4pyq21pcb5t" path="res://scenes/battle/enemies/zombie_enemy.tscn" id="6_661xy"]
+
+[node name="GrassBattle" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.835, 2.835)
+
+[node name="BattleBackground" parent="." instance=ExtResource("1_0f5w6")]
+background_texture = ExtResource("2_h6aes")
+
+[node name="PlayerStatsCard" parent="." instance=ExtResource("3_ao5qy")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = 64.0
+offset_right = -27.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="SelanBattle" parent="." instance=ExtResource("4_d28uh")]
+position = Vector2(0, 38)
+
+[node name="SnailEnemy" parent="." instance=ExtResource("5_nuktu")]
+position = Vector2(-44, -54)
+
+[node name="ZombieEnemy" parent="." instance=ExtResource("6_661xy")]
+position = Vector2(30, -48)
+
+[node name="ZombieEnemy2" parent="." instance=ExtResource("6_661xy")]
+position = Vector2(85, -63)
