@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://djcrsl7p05wdt" path="res://tile_sets/stonepath.tres" id="3_nmg2h"]
 [ext_resource type="PackedScene" uid="uid://ex0rpacxwexa" path="res://scenes/props/barrel.tscn" id="4_bkm68"]
 [ext_resource type="PackedScene" uid="uid://bplxs7u41pjbm" path="res://scenes/props/bench.tscn" id="5_eyu7h"]
-[ext_resource type="PackedScene" uid="uid://c3vpjpt4n4btx" path="res://scenes/environment/pine_tree.tscn" id="6_etwv7"]
+[ext_resource type="PackedScene" uid="uid://c3vpjpt4n4btx" path="res://scenes/props/pine_tree.tscn" id="6_etwv7"]
 [ext_resource type="PackedScene" uid="uid://bgyrhlbvoawyb" path="res://scenes/props/crate.tscn" id="7_1iwg0"]
 [ext_resource type="PackedScene" uid="uid://b3e7lcpvveulh" path="res://scenes/structures/house/mage_shop_exterior.tscn" id="8_n4nw2"]
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="9_f4o3i"]

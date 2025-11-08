@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uc3nv0fy533k" path="res://scenes/characters/selan/selan.tscn" id="5_0qv5d"]
 [ext_resource type="PackedScene" uid="uid://bplxs7u41pjbm" path="res://scenes/props/bench.tscn" id="6_0qv5d"]
 [ext_resource type="PackedScene" uid="uid://bgyrhlbvoawyb" path="res://scenes/props/crate.tscn" id="7_3ajj3"]
-[ext_resource type="PackedScene" uid="uid://c3vpjpt4n4btx" path="res://scenes/environment/pine_tree.tscn" id="7_jxwfh"]
+[ext_resource type="PackedScene" uid="uid://c3vpjpt4n4btx" path="res://scenes/props/pine_tree.tscn" id="7_jxwfh"]
 
 [node name="EnvironmentProps" type="Node2D"]
 y_sort_enabled = true
