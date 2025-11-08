@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3lihap0n5ngs"]
+
+[ext_resource type="PackedScene" uid="uid://dn8dh1xsbvt5l" path="res://scenes/structures/house/mage_shop_interior_base.tscn" id="1_paq41"]
+[ext_resource type="PackedScene" uid="uid://k1snwu2eys26" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="2_86h1g"]
+[ext_resource type="PackedScene" uid="uid://dptconl5qt1dk" path="res://scenes/structures/house/mage_shop_bench.tscn" id="3_pydmw"]
+[ext_resource type="PackedScene" uid="uid://410ptqh3vl4a" path="res://scenes/utils/interaction_area.tscn" id="4_wnc4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptmt"]
+size = Vector2(51, 20)
+
+[node name="ShopInteractionsInt" type="Node2D"]
+
+[node name="HouseInterior" parent="." instance=ExtResource("1_paq41")]
+
+[node name="TransitionDoor" parent="HouseInterior" index="10"]
+new_area = "uid://dbla60w1uohg"
+
+[node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
+position = Vector2(1, 47)
+
+[node name="Shopkeeper" parent="." node_paths=PackedStringArray("tend_target", "shop_milling", "interaction_area", "conversation_label") instance=ExtResource("2_86h1g")]
+position = Vector2(32, -6)
+tend_target = NodePath("../TendTarget")
+shop_milling = [NodePath("../MillPoint1"), NodePath("../MillPoint2")]
+interaction_area = NodePath("../InteractionArea")
+conversation_label = NodePath("../ConvoLabel")
+
+[node name="MageShopBench" parent="." instance=ExtResource("3_pydmw")]
+
+[node name="TendTarget" type="Marker2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_wnc4k")]
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0.5, 15)
+shape = SubResource("RectangleShape2D_2ptmt")
+
+[node name="MillPoint1" type="Marker2D" parent="."]
+position = Vector2(-31, -8)
+
+[node name="MillPoint2" type="Marker2D" parent="."]
+position = Vector2(17, -8)
+
+[node name="ConvoLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 38.0
+offset_right = 64.0
+offset_bottom = 61.0
+
+[editable path="HouseInterior"]
+[editable path="Shopkeeper"]
+[editable path="InteractionArea"]

@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Fake Lufia"
+run/main_scene="uid://dbla60w1uohg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 LevelSwapper="*res://scripts/autoload/level_swapper.gd"
+GameState="*res://scripts/autoload/game_state.gd"
 
 [file_customization]
 

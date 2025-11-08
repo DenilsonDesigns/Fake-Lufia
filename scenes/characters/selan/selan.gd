@@ -54,7 +54,7 @@ func go_to_new_area(new_area_path: String) -> void:
 	# @NOTE: would add transitions/music here
 	LevelSwapper.level_swap(self, new_area_path)
 
-func _on_transition_door_detector_area_entered(transition_door: TransitionDoor) -> void:
+func _on_transition_door_detector_area_entered(transition_door: Area2D) -> void:
 	if door_cooldown: return
 
 	if not transition_door is TransitionDoor: return

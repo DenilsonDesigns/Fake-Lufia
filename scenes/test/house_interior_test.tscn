@@ -7,7 +7,7 @@
 
 [node name="HouseInterior" parent="." instance=ExtResource("1_d0uli")]
 
-[node name="TransitionDoor" parent="HouseInterior" index="6"]
+[node name="TransitionDoor" parent="HouseInterior" index="10"]
 new_area = "uid://dy7h4exkvnrmj"
 
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
