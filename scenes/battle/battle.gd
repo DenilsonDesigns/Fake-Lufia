@@ -3,6 +3,9 @@ extends Node2D
 @export_file("*.png") var background_texture_path: String
 @export var enemy_scenes: Array[PackedScene] = []
 @onready var enemy_container := $EnemyContainer
+@onready var player_stats_card := $PlayerStatsCard
+@onready var hp_bar := $PlayerStatsCard/HPBar/BarFill
+@onready var mp_bar := $PlayerStatsCard/MPBar/BarFill
 
 const MIN_X: float = -90.0
 const MAX_X: float = 90.0
@@ -24,6 +27,12 @@ func _ready():
 		return
 
 	_spawn_enemies()
+
+func setup(player_stats: Dictionary) -> void:
+	if hp_bar:
+		hp_bar.setup(player_stats["hp"], player_stats["max_hp"])
+	if mp_bar:
+		mp_bar.setup(player_stats["mp"], player_stats["max_mp"])
 
 
 func _spawn_enemies():

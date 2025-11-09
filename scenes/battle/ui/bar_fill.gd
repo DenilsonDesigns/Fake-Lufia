@@ -1,14 +1,10 @@
 extends AnimatedSprite2D
 
 @export_enum("HP", "MP") var bar_type: String = "HP"
-
 @export var hp_texture: Texture2D
 @export var mp_texture: Texture2D
 
-@export_range(0.0, 1.0, 0.01) var ratio: float = 1.0:
-	set(value):
-		ratio = clamp(value, 0.0, 1.0)
-		_update_frame()
+var ratio: float = 1.0
 
 func _ready():
 	if hp_texture == null:
@@ -17,6 +13,14 @@ func _ready():
 		mp_texture = load("res://assets/battle/mp_bar_fill.png")
 
 	_load_frames()
+	_update_frame()
+
+func setup(current: float, max_value: float) -> void:
+	if max_value <= 0:
+		ratio = 0
+	else:
+		ratio = current / max_value
+	
 	_update_frame()
 
 func _load_frames():

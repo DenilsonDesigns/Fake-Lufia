@@ -39,7 +39,20 @@ func level_swap_to_battle(current_scene_path: String, battle_scene_path: String)
 	if selan:
 		selan.get_parent().remove_child(selan)
 
-	get_tree().change_scene_to_file(battle_scene_path)
+	# Load & instantiate battle scene
+	var battle_scene: PackedScene = load(battle_scene_path)
+	var battle_instance: Node = battle_scene.instantiate()
+
+	# Replace current scene with battle instance
+	get_tree().current_scene.free()
+	get_tree().root.add_child(battle_instance)
+	battle_instance.owner = get_tree().root
+	get_tree().current_scene = battle_instance
+
+	# Inject stats
+	var stats = GameState.get_player_stats()
+	if battle_instance.has_method("setup"):
+		battle_instance.setup(stats)
 
 func return_from_battle() -> void:
 	if stashed_scene_path != "":

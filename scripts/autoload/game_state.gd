@@ -5,10 +5,12 @@ var encounter_timer: Timer
 
 var player_stats = {
 	"level": 1,
-	"hp": 100,
+	"hp": 70,
 	"max_hp": 100,
 	"gold": 0,
 	"inventory": [],
+	"mp": 150,
+	"max_mp": 200
 }
 
 var current_scene_path = "res://scenes/main.tscn"
@@ -43,3 +45,6 @@ func _on_encounter_roll() -> void:
 	if current_encounter_zone and randf() < 0.45:
 		current_scene_path = get_tree().current_scene.scene_file_path
 		LevelSwapper.level_swap_to_battle(current_scene_path, "res://scenes/battle/battle_field.tscn")
+
+func get_player_stats() -> Dictionary:
+	return player_stats.duplicate()

@@ -39,7 +39,6 @@ offset_bottom = 30.0
 
 [node name="BarFill" parent="HPBar" instance=ExtResource("4_l4n0e")]
 position = Vector2(34, 27.5)
-ratio = 0.4
 
 [node name="MPBar" type="Control" parent="."]
 anchors_preset = 0
@@ -64,4 +63,3 @@ offset_bottom = 39.0
 [node name="BarFill" parent="MPBar" instance=ExtResource("4_l4n0e")]
 position = Vector2(34, 36.5)
 bar_type = "MP"
-ratio = 0.76
