@@ -40,3 +40,9 @@ func _spawn_enemies():
 
 		enemy.position = Vector2(x, y)
 		enemy_container.add_child(enemy)
+
+# @NOTE:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"): # ESC key by default
+		print("Exiting battle, returning to field...")
+		LevelSwapper.return_from_battle()

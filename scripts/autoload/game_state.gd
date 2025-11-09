@@ -21,7 +21,7 @@ func load_game():
 
 func _ready() -> void:
 	encounter_timer = Timer.new()
-	encounter_timer.wait_time = 3.0
+	encounter_timer.wait_time = 2.0
 	encounter_timer.autostart = false
 	encounter_timer.timeout.connect(_on_encounter_roll)
 	add_child(encounter_timer)
@@ -40,7 +40,6 @@ func _on_player_exited_zone(zone: Area2D) -> void:
 		encounter_timer.stop()
 
 func _on_encounter_roll() -> void:
-	if current_encounter_zone and randf() < 0.15:
-		print("Encounter triggered!")
+	if current_encounter_zone and randf() < 0.45:
 		current_scene_path = get_tree().current_scene.scene_file_path
 		LevelSwapper.level_swap_to_battle(current_scene_path, "res://scenes/battle/battle_field.tscn")

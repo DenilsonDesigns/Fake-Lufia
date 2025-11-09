@@ -32,11 +32,29 @@ func remove_existing_selan(parent: Node) -> void:
 	if existing_selan:
 		parent.remove_child(existing_selan)
 
-
 func level_swap_to_battle(current_scene_path: String, battle_scene_path: String) -> void:
 	stashed_scene_path = current_scene_path
+
+	selan = get_tree().current_scene.get_node_or_null("Selan")
+	if selan:
+		selan.get_parent().remove_child(selan)
+
 	get_tree().change_scene_to_file(battle_scene_path)
 
 func return_from_battle() -> void:
 	if stashed_scene_path != "":
 		get_tree().change_scene_to_file(stashed_scene_path)
+
+	_drop_stashed_selan()
+
+func _drop_stashed_selan() -> void:
+	await get_tree().create_timer(0).timeout
+	if not selan:
+		return
+
+	var parent := get_tree().current_scene
+
+	remove_existing_selan(parent)
+
+	parent.add_child(selan)
+	selan.owner = parent

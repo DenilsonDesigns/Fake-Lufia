@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbgi16ykmn84a"]
+[gd_scene load_steps=6 format=3 uid="uid://dbgi16ykmn84a"]
 
 [ext_resource type="Script" uid="uid://cqro30stb2d68" path="res://scenes/battle/battle.gd" id="1_xd4uy"]
-[ext_resource type="PackedScene" uid="uid://cybfkdt78mmqe" path="res://scenes/battle/enemies/snail_enemy.tscn" id="2_0yh6x"]
-[ext_resource type="PackedScene" uid="uid://br4pyq21pcb5t" path="res://scenes/battle/enemies/zombie_enemy.tscn" id="3_h0kxc"]
 [ext_resource type="PackedScene" uid="uid://gxglj3iv8cue" path="res://scenes/battle/battle_background.tscn" id="4_fh7rg"]
 [ext_resource type="PackedScene" uid="uid://bmenq5g0eb15c" path="res://scenes/battle/ui/player_stats_card.tscn" id="4_h0kxc"]
 [ext_resource type="PackedScene" uid="uid://dp3gn481fmeq0" path="res://scenes/characters/selan/selan_battle.tscn" id="5_fh7rg"]
@@ -11,7 +9,6 @@
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_xd4uy")
 background_texture_path = "uid://tg4f0clpmmi3"
-enemy_scenes = Array[PackedScene]([ExtResource("2_0yh6x"), ExtResource("3_h0kxc"), ExtResource("2_0yh6x")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.835, 2.835)

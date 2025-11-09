@@ -8,8 +8,6 @@ func _ready() -> void:
 	connect("body_exited", Callable(self, "_on_body_exited"))
 
 func _on_body_entered(body: Node2D) -> void:
-	# @TODO: check name
-	print(body.name, "<- body.name")
 	if body.name == "Selan":
 		player_entered_zone.emit(self)
 

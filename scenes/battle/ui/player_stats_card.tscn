@@ -9,6 +9,7 @@
 [node name="PlayerStatsCard" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="CardBacking" type="TextureRect" parent="."]
 layout_mode = 0
