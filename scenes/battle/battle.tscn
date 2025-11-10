@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbgi16ykmn84a"]
+[gd_scene load_steps=7 format=3 uid="uid://dbgi16ykmn84a"]
 
 [ext_resource type="Script" uid="uid://cqro30stb2d68" path="res://scenes/battle/battle.gd" id="1_xd4uy"]
 [ext_resource type="PackedScene" uid="uid://gxglj3iv8cue" path="res://scenes/battle/battle_background.tscn" id="4_fh7rg"]
 [ext_resource type="PackedScene" uid="uid://bmenq5g0eb15c" path="res://scenes/battle/ui/player_stats_card.tscn" id="4_h0kxc"]
 [ext_resource type="PackedScene" uid="uid://dp3gn481fmeq0" path="res://scenes/characters/selan/selan_battle.tscn" id="5_fh7rg"]
 [ext_resource type="Texture2D" uid="uid://tg4f0clpmmi3" path="res://assets/battle/field_battle.png" id="5_pll4o"]
+[ext_resource type="PackedScene" uid="uid://45tnrjh6bjdd" path="res://scenes/battle/ui/action_selection_card.tscn" id="5_py4tk"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_xd4uy")
@@ -30,6 +31,13 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="ActionSelectionCard" parent="." instance=ExtResource("5_py4tk")]
+visible = false
+offset_left = 70.0
+offset_top = 48.0
+offset_right = 171.0
+offset_bottom = 101.0
 
 [node name="SelanBattle" parent="." instance=ExtResource("5_fh7rg")]
 position = Vector2(0, 38)
