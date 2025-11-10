@@ -3,6 +3,7 @@ extends Node2D
 @export_file("*.png") var background_texture_path: String
 @export var enemy_scenes: Array[PackedScene] = []
 @onready var enemy_container := $EnemyContainer
+@onready var selan_battle: SelanBattle = $SelanBattle
 @onready var player_stats_card := $PlayerStatsCard
 @onready var action_selection_card := $ActionSelectionCard
 @onready var hp_bar := $PlayerStatsCard/HPBar/BarFill
@@ -64,7 +65,7 @@ func on_player_action_selected(action: String) -> void:
 	state = BattleState.RESOLVING
 	show_player_action_select_menu(false)
 	# @TODO: create method:
-	# resolve_player_action(action)
+	resolve_player_action(action)
 
 func start_enemy_turn():
 	state = BattleState.ENEMY_TURN
@@ -76,6 +77,19 @@ func start_enemy_turn():
 func resolve_player_action(action: String):
 	print("Player used %s!" % action)
 	# TODO: Apply damage/heal/etc.
+	match action:
+		"attack":
+			selan_battle.play_attack()
+			await selan_battle.get_node("AnimationPlayer").animation_finished
+			selan_battle.play_idle()
+			await selan_battle.get_node("AnimationPlayer").animation_finished
+			end_player_turn()
+		"defend":
+			print("Defending...")
+			end_player_turn()
+		"item":
+			print("Using item...")
+			end_player_turn()
 	# @TODO: create method:
 	# check_battle_end()
 
@@ -84,6 +98,11 @@ func resolve_enemy_action():
 	# TODO: Apply damage
 	# @TODO: create method:
 	# check_battle_end()
+
+func end_player_turn():
+	state = BattleState.ENEMY_TURN
+	show_player_action_select_menu(false)
+	start_enemy_turn()
 
 func check_battle_end():
 	if GameState.get_player_stats()["hp"] <= 0:

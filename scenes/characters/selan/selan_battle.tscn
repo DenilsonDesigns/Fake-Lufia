@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp3gn481fmeq0"]
+[gd_scene load_steps=8 format=3 uid="uid://dp3gn481fmeq0"]
 
+[ext_resource type="Script" uid="uid://nu7m7eoa1o2r" path="res://scenes/characters/selan/selan_battle.gd" id="1_8ce0x"]
 [ext_resource type="Texture2D" uid="uid://o1lasd2n7rti" path="res://assets/characters/selan_battle.png" id="1_al2em"]
 
 [sub_resource type="Animation" id="Animation_8ce0x"]
@@ -77,6 +78,7 @@ _data = {
 }
 
 [node name="SelanBattle" type="Node2D"]
+script = ExtResource("1_8ce0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_al2em")
