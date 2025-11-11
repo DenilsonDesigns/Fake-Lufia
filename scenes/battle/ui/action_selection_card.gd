@@ -17,6 +17,8 @@ func _ready():
 	_update_icon_selection()
 
 func _process(_delta):
+	if not visible:
+		return
 	if Input.is_action_just_pressed("ui_right"):
 		selected_index += 1
 		if selected_index >= icons.size():

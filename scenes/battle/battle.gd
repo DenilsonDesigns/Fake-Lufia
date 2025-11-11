@@ -82,7 +82,6 @@ func resolve_player_action(action: String):
 			selan_battle.play_attack()
 			await selan_battle.get_node("AnimationPlayer").animation_finished
 			selan_battle.play_idle()
-			await selan_battle.get_node("AnimationPlayer").animation_finished
 			end_player_turn()
 		"defend":
 			print("Defending...")
