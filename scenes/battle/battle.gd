@@ -61,6 +61,18 @@ func show_player_action_select_menu(show_menu: bool) -> void:
 	action_selection_card.visible = show_menu
 	set_process(visible)
 
+func start_player_turn():
+	state = BattleState.PLAYER_TURN
+	
+	# Show the action selection card/UI
+	show_player_action_select_menu(true)
+	
+	# Optionally highlight the first action
+	action_selection_card.selected_index = 0
+	action_selection_card._update_icon_selection()
+	
+	print("Player's turn!")
+
 func on_player_action_selected(action: String) -> void:
 	state = BattleState.RESOLVING
 	show_player_action_select_menu(false)
@@ -72,7 +84,7 @@ func start_enemy_turn():
 	print("Enemy is thinking...")
 	await get_tree().create_timer(1.0).timeout # fake delay
 	# @TODO: create method:
-	# resolve_enemy_action()
+	resolve_enemy_action()
 
 func resolve_player_action(action: String):
 	print("Player used %s!" % action)
@@ -93,10 +105,13 @@ func resolve_player_action(action: String):
 	# check_battle_end()
 
 func resolve_enemy_action():
-	print("Enemy attacks!")
-	# TODO: Apply damage
-	# @TODO: create method:
-	# check_battle_end()
+	var enemies = enemy_container.get_children()
+	for enemy in enemies:
+		await _perform_enemy_attack(enemy)
+
+	# After all enemies acted, hand turn back to player
+	# @TODO: create:
+	start_player_turn()
 
 func end_player_turn():
 	state = BattleState.ENEMY_TURN
@@ -141,3 +156,21 @@ func _on_action_selected(action: String) -> void:
 	print("Player chose action: ", action)
 	show_player_action_select_menu(false)
 	resolve_player_action(action)
+
+func _perform_enemy_attack(enemy: Node) -> void:
+	print("%s is attacking!" % enemy.name)
+	
+	# Play enemy attack animation
+	if enemy.has_node("AnimationPlayer"):
+		var anim_player = enemy.get_node("AnimationPlayer")
+		anim_player.play("attack")
+		await anim_player.animation_finished
+
+	# Apply damage (simple example)
+	var damage = 5 # Or randomize
+	# @TODO: make this method:
+	# GameState.damage_player(damage)
+	print("Player took %d damage!" % damage)
+	
+	# Small delay after attack
+	await get_tree().create_timer(0.3).timeout
