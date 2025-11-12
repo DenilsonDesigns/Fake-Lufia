@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbgi16ykmn84a"]
+[gd_scene load_steps=8 format=3 uid="uid://dbgi16ykmn84a"]
 
 [ext_resource type="Script" uid="uid://cqro30stb2d68" path="res://scenes/battle/battle.gd" id="1_xd4uy"]
 [ext_resource type="PackedScene" uid="uid://gxglj3iv8cue" path="res://scenes/battle/battle_background.tscn" id="4_fh7rg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dp3gn481fmeq0" path="res://scenes/characters/selan/selan_battle.tscn" id="5_fh7rg"]
 [ext_resource type="Texture2D" uid="uid://tg4f0clpmmi3" path="res://assets/battle/field_battle.png" id="5_pll4o"]
 [ext_resource type="PackedScene" uid="uid://45tnrjh6bjdd" path="res://scenes/battle/ui/action_selection_card.tscn" id="5_py4tk"]
+[ext_resource type="PackedScene" uid="uid://bfya2gmkgnttr" path="res://scenes/battle/ui/pointer.tscn" id="7_pll4o"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_xd4uy")
@@ -43,3 +44,6 @@ offset_bottom = 101.0
 position = Vector2(0, 38)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="Pointer" parent="." instance=ExtResource("7_pll4o")]
+visible = false

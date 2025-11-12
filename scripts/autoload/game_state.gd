@@ -5,11 +5,11 @@ var encounter_timer: Timer
 
 var player_stats = {
 	"level": 1,
-	"hp": 70,
+	"hp": 100,
 	"max_hp": 100,
 	"gold": 0,
 	"inventory": [],
-	"mp": 150,
+	"mp": 200,
 	"max_mp": 200
 }
 
