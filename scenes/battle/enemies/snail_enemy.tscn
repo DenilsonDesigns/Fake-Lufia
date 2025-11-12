@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cybfkdt78mmqe"]
+[gd_scene load_steps=8 format=3 uid="uid://cybfkdt78mmqe"]
 
+[ext_resource type="Script" uid="uid://0n24871u3nu3" path="res://scenes/battle/enemies/snail_enemy.gd" id="1_7smo8"]
 [ext_resource type="Texture2D" uid="uid://dlfesg7a4q1fj" path="res://assets/battle/enemies/enemy_snail.png" id="1_nj7cj"]
 
 [sub_resource type="Animation" id="Animation_7smo8"]
@@ -113,6 +114,7 @@ _data = {
 }
 
 [node name="SnailEnemy" type="Node2D"]
+script = ExtResource("1_7smo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nj7cj")

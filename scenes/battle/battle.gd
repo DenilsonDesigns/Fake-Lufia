@@ -190,12 +190,12 @@ func update_pointer_position():
 
 func _perform_enemy_attack(enemy: Node) -> void:
 	print("%s is attacking!" % enemy.name)
-	
-	# Play enemy attack animation
-	if enemy.has_node("AnimationPlayer"):
-		var anim_player = enemy.get_node("AnimationPlayer")
-		anim_player.play("attack")
-		await anim_player.animation_finished
+
+	if enemy is EnemyBase:
+		enemy.play_attack()
+		await enemy.anim_player.animation_finished
+		selan_battle.play_take_hit()
+		await selan_battle.anim_player.animation_finished
 
 	# Apply damage (simple example)
 	var damage = 5 # Or randomize
@@ -204,7 +204,7 @@ func _perform_enemy_attack(enemy: Node) -> void:
 	print("Player took %d damage!" % damage)
 	
 	# Small delay after attack
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.5).timeout
 
 func _unhandled_input(event: InputEvent) -> void:
 	# @TODO: refactor to have handlers based on BattleState
@@ -243,6 +243,10 @@ func resolve_attack_target(target: Node):
 	selan_battle.play_attack()
 	await selan_battle.get_node("AnimationPlayer").animation_finished
 	selan_battle.play_idle()
+
+	if target is EnemyBase:
+		target.play_take_hit()
+		await target.anim_player.animation_finished
 
 	# TODO: Apply damage to target here
 	print("%s took damage!" % target.name)

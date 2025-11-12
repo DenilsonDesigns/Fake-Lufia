@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp3gn481fmeq0"]
+[gd_scene load_steps=9 format=3 uid="uid://dp3gn481fmeq0"]
 
 [ext_resource type="Script" uid="uid://nu7m7eoa1o2r" path="res://scenes/characters/selan/selan_battle.gd" id="1_8ce0x"]
 [ext_resource type="Texture2D" uid="uid://o1lasd2n7rti" path="res://assets/characters/selan_battle.png" id="1_al2em"]
@@ -16,6 +16,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_68at3"]
@@ -69,12 +81,42 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_5wjw6"]
+resource_name = "take_hit"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68at3"]
 _data = {
 &"RESET": SubResource("Animation_8ce0x"),
 &"attack": SubResource("Animation_68at3"),
 &"dead": SubResource("Animation_10hkt"),
-&"idle": SubResource("Animation_al2em")
+&"idle": SubResource("Animation_al2em"),
+&"take_hit": SubResource("Animation_5wjw6")
 }
 
 [node name="SelanBattle" type="Node2D"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://br4pyq21pcb5t"]
+[gd_scene load_steps=8 format=3 uid="uid://br4pyq21pcb5t"]
 
+[ext_resource type="Script" uid="uid://dl0014vrnre4f" path="res://scenes/battle/enemies/zombie_enemy.gd" id="1_44olr"]
 [ext_resource type="Texture2D" uid="uid://bv6n05xjyjk0b" path="res://assets/battle/enemies/enemy_zombie.png" id="1_dxnfi"]
 
 [sub_resource type="Animation" id="Animation_44olr"]
@@ -124,6 +125,7 @@ _data = {
 }
 
 [node name="ZombieEnemy" type="Node2D"]
+script = ExtResource("1_44olr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dxnfi")
