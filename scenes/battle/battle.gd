@@ -72,10 +72,8 @@ func show_player_action_select_menu(show_menu: bool) -> void:
 func start_player_turn():
 	state = BattleState.PLAYER_TURN
 	
-	# Show the action selection card/UI
 	show_player_action_select_menu(true)
 	
-	# Optionally highlight the first action
 	action_selection_card.selected_index = 0
 	action_selection_card._update_icon_selection()
 	
@@ -84,19 +82,16 @@ func start_player_turn():
 func on_player_action_selected(action: String) -> void:
 	state = BattleState.RESOLVING
 	show_player_action_select_menu(false)
-	# @TODO: create method:
 	resolve_player_action(action)
 
 func start_enemy_turn():
 	state = BattleState.ENEMY_TURN
 	print("Enemy is thinking...")
-	await get_tree().create_timer(1.0).timeout # fake delay
-	# @TODO: create method:
+	await get_tree().create_timer(1.0).timeout
 	resolve_enemy_action()
 
 func resolve_player_action(action: String):
 	print("Player used %s!" % action)
-	# TODO: Apply damage/heal/etc.
 	match action:
 		"attack":
 			selan_battle.play_attack()
@@ -117,8 +112,6 @@ func resolve_enemy_action():
 	for enemy in enemies:
 		await _perform_enemy_attack(enemy)
 
-	# After all enemies acted, hand turn back to player
-	# @TODO: create:
 	start_player_turn()
 
 func end_player_turn():
@@ -136,7 +129,6 @@ func check_battle_end():
 	# 	print("You win!")
 	else:
 		state = BattleState.PLAYER_TURN
-		# @TODO: create method:
 		show_player_action_select_menu(true)
 
 func _spawn_enemies():
@@ -173,7 +165,6 @@ func start_target_selection() -> void:
 		push_error("No enemies to target!")
 		return
 
-	# Position pointer near first enemy
 	update_pointer_position()
 	pointer.visible = true
 	print("Selecting target...")
@@ -207,7 +198,6 @@ func _perform_enemy_attack(enemy: Node) -> void:
 		await battle_lose()
 		return
 	
-	# Small delay after attack
 	await get_tree().create_timer(0.5).timeout
 
 func _unhandled_input(event: InputEvent) -> void:
