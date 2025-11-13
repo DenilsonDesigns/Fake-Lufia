@@ -1,7 +1,10 @@
 extends Node
 
+signal player_stats_changed(new_stats)
+
 var current_encounter_zone: Area2D = null
 var encounter_timer: Timer
+var current_scene_path = "res://scenes/main.tscn"
 
 var player_stats = {
 	"level": 1,
@@ -13,7 +16,6 @@ var player_stats = {
 	"max_mp": 200
 }
 
-var current_scene_path = "res://scenes/main.tscn"
 
 func save_game():
 	pass # serialize to file later
@@ -48,3 +50,11 @@ func _on_encounter_roll() -> void:
 
 func get_player_stats() -> Dictionary:
 	return player_stats.duplicate()
+
+func damage_player(amount: int):
+	player_stats["hp"] = clamp(player_stats["hp"] - amount, 0, player_stats["max_hp"])
+	emit_signal("player_stats_changed", player_stats)
+
+func heal_player(amount: int):
+	player_stats["hp"] = clamp(player_stats["hp"] + amount, 0, player_stats["max_hp"])
+	emit_signal("player_stats_changed", player_stats)

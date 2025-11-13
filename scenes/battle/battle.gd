@@ -32,8 +32,9 @@ var state: BattleState = BattleState.IDLE
 
 func _ready():
 	action_selection_card.action_selected.connect(_on_action_selected)
-
 	pointer.visible = false
+
+	GameState.player_stats_changed.connect(_on_player_stats_changed)
 
 	if background_texture_path == "":
 		push_error("Battle background not set!")
@@ -197,11 +198,14 @@ func _perform_enemy_attack(enemy: Node) -> void:
 		selan_battle.play_take_hit()
 		await selan_battle.anim_player.animation_finished
 
-	# Apply damage (simple example)
-	var damage = 5 # Or randomize
-	# @TODO: make this method:
-	# GameState.damage_player(damage)
+	# @TODO: make damage a property on enemy
+	var damage = 25
+	GameState.damage_player(damage)
 	print("Player took %d damage!" % damage)
+
+	if GameState.get_player_stats()["hp"] <= 0:
+		await battle_lose()
+		return
 	
 	# Small delay after attack
 	await get_tree().create_timer(0.5).timeout
@@ -254,3 +258,21 @@ func resolve_attack_target(target: Node):
 	# target.play_animation("take_hit")
 
 	end_player_turn()
+
+func _on_player_stats_changed(new_stats: Dictionary) -> void:
+	hp_bar.setup(new_stats["hp"], new_stats["max_hp"])
+	mp_bar.setup(new_stats["mp"], new_stats["max_mp"])
+
+func battle_lose() -> void:
+	print("Battle lost! Returning to field...")
+	state = BattleState.DEFEAT
+
+	# Hide all UI to make it clean
+	show_player_action_select_menu(false)
+	pointer.visible = false
+
+	# Optionally, small delay before leaving
+	await get_tree().create_timer(1.0).timeout
+
+	# Exit battle for now
+	LevelSwapper.return_from_battle()
