@@ -190,9 +190,9 @@ func _perform_enemy_attack(enemy: Node) -> void:
 		await selan_battle.anim_player.animation_finished
 
 	# @TODO: make damage a property on enemy
-	var damage = 25
-	GameState.damage_player(damage)
-	print("Player took %d damage!" % damage)
+
+	GameState.damage_player(enemy.attack_power)
+	print("Player took %d damage!" % enemy.attack_power)
 
 	if GameState.get_player_stats()["hp"] <= 0:
 		await battle_lose()
@@ -243,6 +243,7 @@ func resolve_attack_target(target: Node):
 		await target.anim_player.animation_finished
 
 	# TODO: Apply damage to target here
+	target.take_damage(GameState.get_player_stats()["attack_strength"])
 	print("%s took damage!" % target.name)
 	# @TODO: enemy to play take_hit anim
 	# target.play_animation("take_hit")

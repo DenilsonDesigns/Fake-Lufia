@@ -13,9 +13,9 @@ var player_stats = {
 	"gold": 0,
 	"inventory": [],
 	"mp": 200,
-	"max_mp": 200
+	"max_mp": 200,
+	"attack_strength": 50
 }
-
 
 func save_game():
 	pass # serialize to file later
