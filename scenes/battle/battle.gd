@@ -146,6 +146,30 @@ func _spawn_enemies():
 		enemy.position = Vector2(x, y)
 		enemy_container.add_child(enemy)
 
+		if enemy is EnemyBase:
+			enemy.died.connect(_on_enemy_died)
+
+func _on_enemy_died():
+	print("Enemy died:")
+
+	await get_tree().process_frame
+	var enemies = enemy_container.get_children()
+	print("enemies remaininggggg:", enemies)
+	if enemies.is_empty():
+		battle_win()
+
+func battle_win():
+	print("All enemies defeated!")
+	state = BattleState.VICTORY
+
+	pointer.visible = false
+	show_player_action_select_menu(false)
+
+	await get_tree().create_timer(1.0).timeout
+
+	# End battle and return to overworld
+	LevelSwapper.return_from_battle()
+
 func _on_action_selected(action: String) -> void:
 	print("Player chose action: ", action)
 	show_player_action_select_menu(false)

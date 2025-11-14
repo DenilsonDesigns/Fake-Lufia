@@ -2,6 +2,8 @@ class_name EnemyBase extends Node2D
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
+signal died()
+
 var attack_power := 3
 var hp := 30
 
@@ -42,6 +44,8 @@ func handle_death():
 		anim_player.animation_finished.connect(_on_death_animation_finished)
 	else:
 		queue_free()
+
+	died.emit()
 
 func _on_death_animation_finished(anim_name: String):
 	if anim_name == "death":
