@@ -5,6 +5,7 @@ signal player_stats_changed(new_stats)
 var current_encounter_zone: Area2D = null
 var encounter_timer: Timer
 var current_scene_path = "res://scenes/main.tscn"
+var player_is_moving := false
 
 var player_stats = {
 	"level": 1,
@@ -36,7 +37,6 @@ func register_encounter_zone(zone: Area2D) -> void:
 
 func _on_player_entered_zone(zone: Area2D) -> void:
 	current_encounter_zone = zone
-	encounter_timer.start()
 
 func _on_player_exited_zone(zone: Area2D) -> void:
 	if current_encounter_zone == zone:
@@ -44,9 +44,14 @@ func _on_player_exited_zone(zone: Area2D) -> void:
 		encounter_timer.stop()
 
 func _on_encounter_roll() -> void:
-	if current_encounter_zone and randf() < 0.45:
+	if not player_is_moving:
+		return
+
+	if current_encounter_zone and randf() < 0.82:
 		current_scene_path = get_tree().current_scene.scene_file_path
 		LevelSwapper.level_swap_to_battle(current_scene_path, "res://scenes/battle/battle_field.tscn")
+	else:
+		encounter_timer.start()
 
 func get_player_stats() -> Dictionary:
 	return player_stats.duplicate()
@@ -58,3 +63,20 @@ func damage_player(amount: int):
 func heal_player(amount: int):
 	player_stats["hp"] = clamp(player_stats["hp"] + amount, 0, player_stats["max_hp"])
 	emit_signal("player_stats_changed", player_stats)
+
+func set_player_moving(moving: bool) -> void:
+	if player_is_moving == moving:
+		return
+
+	player_is_moving = moving
+
+	if moving and current_encounter_zone:
+		if not encounter_timer.is_stopped():
+			return
+		encounter_timer.start()
+	else:
+		encounter_timer.stop()
+
+func _try_start_encounter_timer() -> void:
+	if player_is_moving and current_encounter_zone:
+		encounter_timer.start()

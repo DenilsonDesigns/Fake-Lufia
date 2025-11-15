@@ -11,6 +11,9 @@ var door_cooldown: bool = false
 func _physics_process(_delta: float) -> void:
 	var direction := _get_direction_from_input()
 
+	print("setplaymoving: ", direction != Vector2.ZERO)
+	GameState.set_player_moving(direction != Vector2.ZERO)
+
 	if direction != Vector2.ZERO:
 		velocity = direction * speed
 		last_direction = direction
