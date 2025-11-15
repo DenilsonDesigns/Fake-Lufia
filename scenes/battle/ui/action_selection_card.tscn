@@ -176,6 +176,3 @@ layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_n5jyg")
 stretch_mode = 5
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.515, 3.515)

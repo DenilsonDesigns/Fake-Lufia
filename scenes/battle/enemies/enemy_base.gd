@@ -29,8 +29,6 @@ func take_damage(damage: int) -> void:
 	hp -= damage
 	play_take_hit()
 
-	print("hp after damage", hp)
-
 	if hp <= 0:
 		handle_death()
 

@@ -61,7 +61,6 @@ func setup(player_stats: Dictionary) -> void:
 
 
 func start_battle():
-	print("Battle started!")
 	state = BattleState.PLAYER_TURN
 	show_player_action_select_menu(true)
 
@@ -76,8 +75,6 @@ func start_player_turn():
 	
 	action_selection_card.selected_index = 0
 	action_selection_card._update_icon_selection()
-	
-	print("Player's turn!")
 
 func on_player_action_selected(action: String) -> void:
 	state = BattleState.RESOLVING
@@ -86,12 +83,10 @@ func on_player_action_selected(action: String) -> void:
 
 func start_enemy_turn():
 	state = BattleState.ENEMY_TURN
-	print("Enemy is thinking...")
 	await get_tree().create_timer(1.0).timeout
 	resolve_enemy_action()
 
 func resolve_player_action(action: String):
-	print("Player used %s!" % action)
 	match action:
 		"attack":
 			selan_battle.play_attack()
@@ -150,16 +145,12 @@ func _spawn_enemies():
 			enemy.died.connect(_on_enemy_died)
 
 func _on_enemy_died():
-	print("Enemy died:")
-
 	await get_tree().process_frame
 	var enemies = enemy_container.get_children()
-	print("enemies remaininggggg:", enemies)
 	if enemies.is_empty():
 		battle_win()
 
 func battle_win():
-	print("All enemies defeated!")
 	state = BattleState.VICTORY
 
 	pointer.visible = false
@@ -171,7 +162,6 @@ func battle_win():
 	LevelSwapper.return_from_battle()
 
 func _on_action_selected(action: String) -> void:
-	print("Player chose action: ", action)
 	show_player_action_select_menu(false)
 
 	if action == "attack":
@@ -191,7 +181,6 @@ func start_target_selection() -> void:
 
 	update_pointer_position()
 	pointer.visible = true
-	print("Selecting target...")
 
 func update_pointer_position():
 	var enemies = enemy_container.get_children()
@@ -205,18 +194,13 @@ func update_pointer_position():
 	tween.tween_property(pointer, "global_position", target_pos, 0.1)
 
 func _perform_enemy_attack(enemy: Node) -> void:
-	print("%s is attacking!" % enemy.name)
-
 	if enemy is EnemyBase:
 		enemy.play_attack()
 		await enemy.anim_player.animation_finished
 		selan_battle.play_take_hit()
 		await selan_battle.anim_player.animation_finished
 
-	# @TODO: make damage a property on enemy
-
 	GameState.damage_player(enemy.attack_power)
-	print("Player took %d damage!" % enemy.attack_power)
 
 	if GameState.get_player_stats()["hp"] <= 0:
 		await battle_lose()
@@ -257,7 +241,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func resolve_attack_target(target: Node):
 	state = BattleState.RESOLVING
-	print("Attacking target: ", target.name)
 	selan_battle.play_attack()
 	await selan_battle.get_node("AnimationPlayer").animation_finished
 	selan_battle.play_idle()
@@ -266,12 +249,7 @@ func resolve_attack_target(target: Node):
 		target.play_take_hit()
 		await target.anim_player.animation_finished
 
-	# TODO: Apply damage to target here
 	target.take_damage(GameState.get_player_stats()["attack_strength"])
-	print("%s took damage!" % target.name)
-	# @TODO: enemy to play take_hit anim
-	# target.play_animation("take_hit")
-
 	end_player_turn()
 
 func _on_player_stats_changed(new_stats: Dictionary) -> void:
@@ -279,15 +257,11 @@ func _on_player_stats_changed(new_stats: Dictionary) -> void:
 	mp_bar.setup(new_stats["mp"], new_stats["max_mp"])
 
 func battle_lose() -> void:
-	print("Battle lost! Returning to field...")
 	state = BattleState.DEFEAT
 
-	# Hide all UI to make it clean
 	show_player_action_select_menu(false)
 	pointer.visible = false
 
-	# Optionally, small delay before leaving
 	await get_tree().create_timer(1.0).timeout
 
-	# Exit battle for now
 	LevelSwapper.return_from_battle()
