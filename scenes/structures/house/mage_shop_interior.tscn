@@ -18,12 +18,11 @@ new_area = "uid://dbla60w1uohg"
 [node name="DropPoint" parent="HouseInterior/TransitionDoor" index="1"]
 position = Vector2(1, 47)
 
-[node name="Shopkeeper" parent="." node_paths=PackedStringArray("tend_target", "shop_milling", "interaction_area", "conversation_label") instance=ExtResource("2_86h1g")]
+[node name="Shopkeeper" parent="." node_paths=PackedStringArray("tend_target", "shop_milling", "interaction_area") instance=ExtResource("2_86h1g")]
 position = Vector2(32, -6)
 tend_target = NodePath("../TendTarget")
 shop_milling = [NodePath("../MillPoint1"), NodePath("../MillPoint2")]
 interaction_area = NodePath("../InteractionArea")
-conversation_label = NodePath("../ConvoLabel")
 
 [node name="MageShopBench" parent="." instance=ExtResource("3_pydmw")]
 

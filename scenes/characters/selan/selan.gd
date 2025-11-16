@@ -7,6 +7,19 @@ class_name Selan extends CharacterBody2D
 var last_direction := Vector2.DOWN
 var last_door_connection := -1
 var door_cooldown: bool = false
+var interact_target: NPC = null
+@export var display_name: String = "Selan"
+
+func _process(_delta):
+	if Input.is_action_just_pressed("interact") and interact_target:
+		if DialogueManager.is_active():
+			DialogueManager.next()
+		elif interact_target:
+			var actors = {
+				"npc": interact_target,
+				"player": self
+			}
+			DialogueManager.start(interact_target.conversation, actors)
 
 func _physics_process(_delta: float) -> void:
 	var direction := _get_direction_from_input()

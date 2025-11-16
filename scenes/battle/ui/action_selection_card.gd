@@ -9,7 +9,6 @@ signal action_selected(action: String)
 var icons: Array[AnimatedSprite2D]
 var selected_index := 0
 
-# @TODO: dont like this:
 var actions := ["attack", "defend", "item"]
 
 func _ready():

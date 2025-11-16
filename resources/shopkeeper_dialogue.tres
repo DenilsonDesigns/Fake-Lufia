@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ConversationResource" load_steps=2 format=3 uid="uid://d3dj5is5ltss7"]
+
+[ext_resource type="Script" uid="uid://bdvvwdvf6kt2k" path="res://resources/conversation_resource.gd" id="1_h0q0v"]
+
+[resource]
+script = ExtResource("1_h0q0v")
+lines = Array[Dictionary]([{
+"actor": "npc",
+"text": "Welcome! What would you like to buy?"
+}, {
+"actor": "player",
+"text": "Show me your wares."
+}, {
+"actor": "npc",
+"text": "Of course!"
+}])
+metadata/_custom_type_script = "uid://bdvvwdvf6kt2k"

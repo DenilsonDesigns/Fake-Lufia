@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://uc3nv0fy533k"]
+[gd_scene load_steps=16 format=3 uid="uid://uc3nv0fy533k"]
 
 [ext_resource type="Script" uid="uid://ck5taryrgsiis" path="res://scenes/characters/selan/selan.gd" id="1_fa2jv"]
 [ext_resource type="Texture2D" uid="uid://bk1lr56xpk62u" path="res://assets/characters/selan.png" id="1_yjta1"]
@@ -173,6 +173,9 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa2jv"]
 size = Vector2(9, 12)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mirgl"]
+radius = 35.0143
+
 [node name="Selan" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 script = ExtResource("1_fa2jv")
@@ -201,5 +204,11 @@ zoom = Vector2(2.51, 2.51)
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_fa2jv")
 debug_color = Color(0.832324, 0.323727, 0.570942, 0.42)
+
+[node name="InteractDetector" type="Area2D" parent="." groups=["player_interact_detector"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDetector"]
+shape = SubResource("CircleShape2D_mirgl")
+debug_color = Color(0.719593, 0.472331, 0.241675, 0.42)
 
 [connection signal="area_entered" from="TransitionDoorDetector" to="." method="_on_transition_door_detector_area_entered"]
