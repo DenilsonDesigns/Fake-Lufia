@@ -1,19 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx48wegglvyq0"]
+[gd_scene load_steps=4 format=3 uid="uid://cx48wegglvyq0"]
 
-[ext_resource type="Texture2D" uid="uid://cnfaf312duthn" path="res://assets/battle/battle_selection_card.png" id="1_8ggb3"]
+[ext_resource type="StyleBox" uid="uid://dlhrf5xni6wqi" path="res://resources/themes/BlueBorderBox.tres" id="1_66cc2"]
 [ext_resource type="Script" uid="uid://b2paxegpj7d11" path="res://scenes/ui/speech_box.gd" id="2_66cc2"]
 [ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_67x7s"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67x7s"]
-texture = ExtResource("1_8ggb3")
-texture_margin_left = 3.0
-texture_margin_top = 4.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(0, 0, 48, 48)
-
 [node name="SpeechBox" type="PanelContainer"]
-theme_override_styles/panel = SubResource("StyleBoxTexture_67x7s")
+theme_override_styles/panel = ExtResource("1_66cc2")
 script = ExtResource("2_66cc2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

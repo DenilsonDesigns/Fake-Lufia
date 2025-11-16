@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://45tnrjh6bjdd"]
+[gd_scene load_steps=19 format=3 uid="uid://45tnrjh6bjdd"]
 
-[ext_resource type="Texture2D" uid="uid://cnfaf312duthn" path="res://assets/battle/battle_selection_card.png" id="1_aq12c"]
+[ext_resource type="StyleBox" uid="uid://dlhrf5xni6wqi" path="res://resources/themes/BlueBorderBox.tres" id="1_gimcf"]
 [ext_resource type="Texture2D" uid="uid://btn4djc15tk8d" path="res://assets/battle/battle_selection_character_name.png" id="2_gr4cn"]
 [ext_resource type="Texture2D" uid="uid://brwuu4oocpwih" path="res://assets/battle/selan_battle_icon.png" id="2_n5jyg"]
 [ext_resource type="Script" uid="uid://jdw6l1s6t2ak" path="res://scenes/battle/ui/action_selection_card.gd" id="2_vvfpo"]
@@ -9,18 +9,6 @@
 [ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="5_gimcf"]
 [ext_resource type="Texture2D" uid="uid://17fkqv5som0r" path="res://assets/battle/battle_selection_defend_icon.png" id="5_nun3u"]
 [ext_resource type="Texture2D" uid="uid://cvmg8hh5cv6o4" path="res://assets/battle/battle_selection_item_icon.png" id="6_j8ghx"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5jyg"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("1_aq12c")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nun3u"]
 atlas = ExtResource("4_g4p62")
@@ -106,7 +94,7 @@ animations = [{
 [node name="ActionSelectionCard" type="PanelContainer"]
 offset_right = 60.0
 offset_bottom = 44.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_n5jyg")
+theme_override_styles/panel = ExtResource("1_gimcf")
 script = ExtResource("2_vvfpo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
