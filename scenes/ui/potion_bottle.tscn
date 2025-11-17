@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch3tcdm71prrq"]
+
+[ext_resource type="Texture2D" uid="uid://cq032jnoov1j1" path="res://assets/props/potion_bottle.png" id="1_37owo"]
+
+[node name="PotionBottle" type="Sprite2D"]
+position = Vector2(6, 8)
+texture = ExtResource("1_37owo")
