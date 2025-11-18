@@ -1,6 +1,7 @@
 class_name Shopkeeper extends NPC
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var shop_menu: PanelContainer = $ShopMenu
 
 @export var tend_target: Marker2D
 @export var shop_milling: Array[Marker2D] = []
@@ -14,7 +15,6 @@ var moving := false
 var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO
 var target_is_tend := false
-
 var wander_timer := 0.0
 var wander_delay := 3.0
 var current_spot: Vector2 = Vector2.ZERO
@@ -22,6 +22,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 func _ready():
 	randomize()
+	shop_menu.visible = false
 
 	if interaction_area == null:
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
@@ -39,6 +40,8 @@ func _ready():
 
 	start_position = global_position
 	target_position = global_position
+
+	DialogueManager.conversation_finished.connect(_on_conversation_finished)
 
 	interaction_area.body_entered.connect(_on_interaction_area_body_entered)
 	interaction_area.body_exited.connect(_on_interaction_area_body_exited)
@@ -71,6 +74,14 @@ func _physics_process(delta):
 			if wander_timer >= wander_delay:
 				_pick_new_milling_target()
 				wander_timer = 0.0
+
+func _on_conversation_finished(actor):
+	if actor == self:
+		show_shop()
+
+func show_shop():
+	shop_menu.visible = true
+	shop_menu.grab_focus()
 
 func _pick_new_milling_target():
 	if shop_milling.size() == 0:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6dqngc2s6s3y"]
+[gd_scene load_steps=8 format=3 uid="uid://b6dqngc2s6s3y"]
 
 [ext_resource type="StyleBox" uid="uid://dlhrf5xni6wqi" path="res://resources/themes/BlueBorderBox.tres" id="1_8w5fe"]
+[ext_resource type="Script" uid="uid://ccgfh5kh1jqwe" path="res://scenes/ui/shop_menu.gd" id="2_p856s"]
 [ext_resource type="PackedScene" uid="uid://ch3tcdm71prrq" path="res://scenes/ui/potion_bottle.tscn" id="2_rnndp"]
 [ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_eyms7"]
 [ext_resource type="PackedScene" uid="uid://h25cvqp16ut7" path="res://scenes/ui/arrow_up.tscn" id="4_idpb1"]
@@ -9,6 +10,7 @@
 
 [node name="ShopMenu" type="PanelContainer"]
 theme_override_styles/panel = ExtResource("1_8w5fe")
+script = ExtResource("2_p856s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

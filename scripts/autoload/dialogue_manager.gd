@@ -6,11 +6,17 @@ var _actors: Dictionary = {}
 var _active: bool = false
 var _dialogue_box: Node = null
 
+signal conversation_finished(actor: Node)
+
 var SpeechBoxScene = preload("res://scenes/ui/speech_box.tscn")
+
+var current_actor: Node = null
 
 func start(conversation: ConversationResource, actors: Dictionary) -> void:
 	if _active:
 		return
+
+	current_actor = actors.get("npc")
 
 	_lines = conversation.lines
 	_actors = actors
@@ -47,6 +53,7 @@ func _end_conversation() -> void:
 		_dialogue_box.queue_free()
 		_dialogue_box = null
 
+	conversation_finished.emit(current_actor)
 	_active = false
 	_lines = []
 	_index = 0

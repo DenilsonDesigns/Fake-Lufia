@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://k1snwu2eys26"]
+[gd_scene load_steps=16 format=3 uid="uid://k1snwu2eys26"]
 
 [ext_resource type="Texture2D" uid="uid://b3nfthtn6c7j7" path="res://assets/characters/shopkeeper.png" id="1_dt1ut"]
 [ext_resource type="Script" uid="uid://dbeh03ffg3t4a" path="res://scenes/characters/shopkeeper/shopkeeper.gd" id="1_inoif"]
 [ext_resource type="Resource" uid="uid://d3dj5is5ltss7" path="res://resources/shopkeeper_dialogue.tres" id="2_4qm02"]
+[ext_resource type="PackedScene" uid="uid://b6dqngc2s6s3y" path="res://scenes/ui/shop_menu.tscn" id="4_kauym"]
 
 [sub_resource type="Animation" id="Animation_inoif"]
 length = 0.001
@@ -192,3 +193,6 @@ libraries = {
 position = Vector2(0, -3)
 rotation = 1.57195
 shape = SubResource("CapsuleShape2D_dt1ut")
+
+[node name="ShopMenu" parent="." instance=ExtResource("4_kauym")]
+visible = false
