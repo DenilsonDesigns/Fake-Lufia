@@ -53,8 +53,8 @@ func _input(event):
 func _confirm_purchase():
 	var total_cost = amount * price
 
-	if GameState.gold >= total_cost:
-		GameState.gold -= total_cost
+	if GameState.get_gold() >= total_cost:
+		GameState.set_gold(total_cost)
 		GameState.add_item("potion", amount)
 		close()
 	else:
