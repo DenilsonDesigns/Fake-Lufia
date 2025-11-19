@@ -22,7 +22,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 func _ready():
 	randomize()
-	shop_menu.visible = false
+	shop_menu.close()
 
 	if interaction_area == null:
 		push_error("Shopkeeper missing InteractionArea reference! Please assign it in the Inspector.")
@@ -80,8 +80,7 @@ func _on_conversation_finished(actor):
 		show_shop()
 
 func show_shop():
-	shop_menu.visible = true
-	shop_menu.grab_focus()
+	shop_menu.open()
 
 func _pick_new_milling_target():
 	if shop_milling.size() == 0:

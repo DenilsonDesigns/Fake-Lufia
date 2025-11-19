@@ -10,18 +10,27 @@ extends PanelContainer
 var amount := 1
 
 func _ready():
+	focus_mode = Control.FOCUS_ALL
+	grab_focus()
 	amount_label.text = str(amount)
-	set_process_input(false)
+	set_process_input(true)
 
 func open():
 	visible = true
+	# @NOTE: super hacky but just doing it like this for learning project
+	# in real project I would break this shop_menu out of the scene its in
+	# and put it in a UI layer.
+	z_index = 100
+	grab_focus()
 	amount = 1
 	amount_label.text = "1"
 	set_process_input(true)
+	GameState.in_menu = true
 
 func close():
 	visible = false
 	set_process_input(false)
+	GameState.in_menu = false
 
 func _input(event):
 	if not visible:
@@ -48,7 +57,5 @@ func _confirm_purchase():
 		GameState.gold -= total_cost
 		GameState.add_item("potion", amount)
 		close()
-		# optional: show a “Thank you!” dialogue
 	else:
-		# show error text?
 		close()

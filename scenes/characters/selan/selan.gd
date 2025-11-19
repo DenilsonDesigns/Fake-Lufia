@@ -11,6 +11,9 @@ var interact_target: NPC = null
 @export var display_name: String = "Selan"
 
 func _process(_delta):
+	if GameState.in_menu:
+		return
+
 	if Input.is_action_just_pressed("interact") and interact_target:
 		if DialogueManager.is_active():
 			DialogueManager.next()
@@ -22,6 +25,10 @@ func _process(_delta):
 			DialogueManager.start(interact_target.conversation, actors)
 
 func _physics_process(_delta: float) -> void:
+	if GameState.in_menu:
+		velocity = Vector2.ZERO
+		return
+
 	var direction := _get_direction_from_input()
 
 	GameState.set_player_moving(direction != Vector2.ZERO)

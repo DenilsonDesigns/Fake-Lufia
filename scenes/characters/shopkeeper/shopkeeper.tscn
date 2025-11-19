@@ -196,3 +196,4 @@ shape = SubResource("CapsuleShape2D_dt1ut")
 
 [node name="ShopMenu" parent="." instance=ExtResource("4_kauym")]
 visible = false
+z_index = 4
