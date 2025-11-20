@@ -19,6 +19,8 @@ var wander_timer := 0.0
 var wander_delay := 3.0
 var current_spot: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
+var can_interact: bool = true
+var interact_cooldown: float = 0.2
 
 func _ready():
 	randomize()
@@ -105,6 +107,8 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		moving = true
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if GameState.ui_blocked:
+		return
 	if area.is_in_group("player_interact_detector"):
 		area.owner.interact_target = self
 
@@ -133,6 +137,11 @@ func get_display_name() -> String:
 # NEW Dialogue System Implementation
 # -------------------------------------------------
 func interact():
+	if not can_interact:
+		return
+
+	if GameState.ui_blocked:
+		return
 	# Player triggered this NPC — start the conversation
 	if conversation:
 		DialogueManager.start(
@@ -142,9 +151,15 @@ func interact():
 				"player": get_tree().get_first_node_in_group("player")
 			}
 		)
+		await get_tree().create_timer(interact_cooldown).timeout
+		can_interact= true
 
 func _shop_milling_positions() -> Array:
 	var positions := []
 	for m in shop_milling:
 		positions.append(m.global_position)
 	return positions
+
+func _exit_tree():
+	if DialogueManager.current_actor == self:
+		DialogueManager.force_cancel()

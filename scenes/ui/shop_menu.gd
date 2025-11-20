@@ -22,15 +22,23 @@ func open():
 	# and put it in a UI layer.
 	z_index = 100
 	grab_focus()
+
 	amount = 1
 	amount_label.text = "1"
+
 	set_process_input(true)
 	GameState.in_menu = true
+	GameState.ui_blocked = true
 
 func close():
 	visible = false
 	set_process_input(false)
 	GameState.in_menu = false
+	GameState.ui_blocked = false
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.interact_target = null
 
 func _input(event):
 	if not visible:

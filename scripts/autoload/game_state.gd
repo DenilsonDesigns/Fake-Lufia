@@ -7,6 +7,7 @@ var encounter_timer: Timer
 var current_scene_path = "res://scenes/main.tscn"
 var player_is_moving := false
 var in_menu := false
+var ui_blocked := false
 
 var player_stats = {
 	"level": 1,
