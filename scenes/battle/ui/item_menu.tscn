@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg0q6x3cwowod"]
+
+[ext_resource type="StyleBox" uid="uid://dlhrf5xni6wqi" path="res://resources/themes/BlueBorderBox.tres" id="1_8fecb"]
+[ext_resource type="Script" uid="uid://dg444xphwnbtp" path="res://scenes/battle/ui/item_menu.gd" id="2_8fecb"]
+[ext_resource type="PackedScene" uid="uid://ch3tcdm71prrq" path="res://scenes/ui/potion_bottle.tscn" id="2_e5qx4"]
+[ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_6udqi"]
+
+[node name="ItemMenu" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_8fecb")
+script = ExtResource("2_8fecb")
+
+[node name="ItemContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconContainer" type="Control" parent="ItemContainer/HBoxContainer"]
+custom_minimum_size = Vector2(12, 16)
+layout_mode = 2
+
+[node name="PotionBottle" parent="ItemContainer/HBoxContainer/IconContainer" instance=ExtResource("2_e5qx4")]
+
+[node name="ItemName" type="Label" parent="ItemContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6udqi")
+theme_override_font_sizes/font_size = 8
+text = "Potion"
+
+[node name="Separator" type="Label" parent="ItemContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6udqi")
+theme_override_font_sizes/font_size = 8
+text = ":"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ItemContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6udqi")
+theme_override_font_sizes/font_size = 8
+text = "13"

@@ -14,20 +14,28 @@ var actions := ["attack", "defend", "item"]
 func _ready():
 	icons = [attack_icon, defend_icon, item_icon]
 	_update_icon_selection()
+	focus_mode = Control.FOCUS_ALL
+	grab_focus()
 
-func _process(_delta):
+func _unhandled_key_input(event: InputEvent) -> void:
 	if not visible:
 		return
-	if Input.is_action_just_pressed("ui_right"):
-		selected_index += 1
-		if selected_index >= icons.size():
-			selected_index = 0
+	if not has_focus():
+		return
+	
+	if event.is_action_pressed("ui_right"):
+		selected_index = (selected_index + 1) % icons.size()
 		_update_icon_selection()
-	elif Input.is_action_just_pressed("ui_left"):
+		get_viewport().set_input_as_handled()
+
+	elif event.is_action_pressed("ui_left"):
 		selected_index = (selected_index - 1 + icons.size()) % icons.size()
 		_update_icon_selection()
-	elif Input.is_action_just_pressed("ui_accept"):
+		get_viewport().set_input_as_handled()
+
+	elif event.is_action_pressed("ui_accept"):
 		_emit_selected_action()
+		get_viewport().set_input_as_handled()
 
 func _update_icon_selection():
 	for i in range(icons.size()):

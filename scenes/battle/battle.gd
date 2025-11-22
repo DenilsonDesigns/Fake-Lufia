@@ -9,6 +9,7 @@ extends Node2D
 @onready var hp_bar := $PlayerStatsCard/HPBar/BarFill
 @onready var mp_bar := $PlayerStatsCard/MPBar/BarFill
 @onready var pointer: Sprite2D = $Pointer
+@onready var item_menu: PanelContainer = $ItemMenu
 
 var selected_enemy_index := 0
 var selecting_target := false
@@ -33,6 +34,9 @@ var state: BattleState = BattleState.IDLE
 func _ready():
 	action_selection_card.action_selected.connect(_on_action_selected)
 	pointer.visible = false
+
+	item_menu.item_selected.connect(_on_item_chosen)
+	item_menu.item_selection_cancelled.connect(_on_item_menu_cancelled)
 
 	GameState.player_stats_changed.connect(_on_player_stats_changed)
 
@@ -59,27 +63,27 @@ func setup(player_stats: Dictionary) -> void:
 	
 	start_battle()
 
-
 func start_battle():
 	state = BattleState.PLAYER_TURN
 	show_player_action_select_menu(true)
 
 func show_player_action_select_menu(show_menu: bool) -> void:
+	if (show_menu):
+		item_menu.close()
+
 	action_selection_card.visible = show_menu
 	set_process(visible)
+	await get_tree().process_frame
+	action_selection_card.grab_focus()
 
 func start_player_turn():
 	state = BattleState.PLAYER_TURN
 	
+	item_menu.close()
 	show_player_action_select_menu(true)
 	
 	action_selection_card.selected_index = 0
 	action_selection_card._update_icon_selection()
-
-func on_player_action_selected(action: String) -> void:
-	state = BattleState.RESOLVING
-	show_player_action_select_menu(false)
-	resolve_player_action(action)
 
 func start_enemy_turn():
 	state = BattleState.ENEMY_TURN
@@ -99,8 +103,6 @@ func resolve_player_action(action: String):
 		"item":
 			print("Using item...")
 			end_player_turn()
-	# @TODO: create method:
-	# check_battle_end()
 
 func resolve_enemy_action():
 	var enemies = enemy_container.get_children()
@@ -166,10 +168,13 @@ func _on_action_selected(action: String) -> void:
 
 	if action == "attack":
 		start_target_selection()
+	elif action == "item":
+		show_item_menu()
 	else:
 		resolve_player_action(action)
 
 func start_target_selection() -> void:
+	action_selection_card.grab_focus()
 	state = BattleState.TARGET_SELECTION
 	selecting_target = true
 	selected_enemy_index = 0
@@ -181,6 +186,37 @@ func start_target_selection() -> void:
 
 	update_pointer_position()
 	pointer.visible = true
+
+func show_item_menu():
+	state = BattleState.PLAYER_TURN
+
+	var potion_amount: int = GameState.inventory.get("potion", 0)
+	item_menu.open(potion_amount)
+
+func _on_item_chosen(item_name: String) -> void:
+	match item_name:
+		"potion":
+			if GameState.inventory.get("potion", 0) <= 0:
+				print("No potions left!")
+				show_player_action_select_menu(true)
+				return
+			use_potion()
+
+
+func _on_item_menu_cancelled() -> void:
+	show_player_action_select_menu(true)
+
+func use_potion():
+	var inventory = GameState.inventory
+	
+	inventory["potion"] -= 1
+
+	var heal_amount = 50
+	GameState.heal_player(heal_amount)
+
+	print("Used potion, healed ", heal_amount)
+	item_menu.close()
+	end_player_turn()
 
 func update_pointer_position():
 	var enemies = enemy_container.get_children()
