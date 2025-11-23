@@ -29,9 +29,14 @@ enum BattleState {
 	DEFEAT
 }
 
+var BATTLE_THEME = preload("res://assets/audio/battle_theme.ogg")
+
 var state: BattleState = BattleState.IDLE
 
 func _ready():
+	await get_tree().process_frame
+	AudioManager.crossfade_bgm(BATTLE_THEME, 0.5)
+
 	action_selection_card.action_selected.connect(_on_action_selected)
 	pointer.visible = false
 

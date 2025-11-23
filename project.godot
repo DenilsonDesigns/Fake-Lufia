@@ -15,11 +15,16 @@ run/main_scene="uid://dbla60w1uohg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
 [autoload]
 
 LevelSwapper="*res://scripts/autoload/level_swapper.gd"
 GameState="*res://scripts/autoload/game_state.gd"
 DialogueManager="*res://scripts/autoload/dialogue_manager.gd"
+AudioManager="*res://scenes/audio/audio_manager.tscn"
 
 [file_customization]
 
