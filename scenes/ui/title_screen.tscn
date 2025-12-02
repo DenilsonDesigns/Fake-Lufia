@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbg11dfd08tub"]
+
+[ext_resource type="Texture2D" uid="uid://dfl6rncfm1lr4" path="res://assets/title/title.png" id="1_eb34j"]
+[ext_resource type="Script" uid="uid://xqr3134upnkt" path="res://scenes/ui/title_screen.gd" id="1_r23qo"]
+[ext_resource type="Texture2D" uid="uid://d3vdm0hisi5no" path="res://assets/title/title_text.png" id="2_aqpy5"]
+[ext_resource type="PackedScene" uid="uid://bfya2gmkgnttr" path="res://scenes/battle/ui/pointer.tscn" id="3_a4ium"]
+[ext_resource type="FontFile" uid="uid://bp8qdhwa7t7u2" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_w8uqo"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r23qo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, -90)
+zoom = Vector2(3.05, 3.05)
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -180.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_eb34j")
+
+[node name="TitleText" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = 17.0
+offset_right = 82.5
+offset_bottom = 129.0
+grow_horizontal = 2
+texture = ExtResource("2_aqpy5")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -66.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Pointer" parent="Menu" instance=ExtResource("3_a4ium")]
+position = Vector2(-17, 23)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w8uqo")
+theme_override_font_sizes/font_size = 8
+text = "Start"
+
+[node name="Quit" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w8uqo")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
