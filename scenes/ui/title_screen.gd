@@ -24,14 +24,24 @@ func _input(event):
 		update_pointer_position()
 
 	if event.is_action_pressed("ui_accept"):
-		buttons[selected_index].emit_signal("pressed")
+		var btn = buttons[selected_index]
+		match btn.name:
+			"Start":
+				_on_start_pressed()
+			"Quit":
+				_on_quit_pressed()
+
+func _on_start_pressed():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func _on_quit_pressed():
+	get_tree().quit()
 
 
 func update_pointer_position():
 	var btn := buttons[selected_index]
 	var pointer_size = pointer.texture.get_size()
 
-	# Button’s position inside VBoxContainer → convert to Menu space
 	var btn_pos_in_menu = vbox_container.position + btn.position
 
 	pointer.position = Vector2(
